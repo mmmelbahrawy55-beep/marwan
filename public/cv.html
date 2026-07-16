@@ -32,7 +32,6 @@
     body { background: #f0f0f5; }
   }
 
-  /* Header */
   .header {
     background: linear-gradient(135deg, #5558e6, #7c3aed);
     padding: 28px 36px 24px;
@@ -51,10 +50,8 @@
   .header .contact span { display: flex; align-items: center; gap: 5px; }
   .header .contact svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 2; }
 
-  /* Body */
   .body { padding: 20px 36px 28px; }
 
-  /* Section */
   .section { margin-bottom: 18px; }
   .section-title {
     font-size: 10px;
@@ -67,10 +64,8 @@
     margin-bottom: 10px;
   }
 
-  /* Summary */
   .summary { font-size: 11px; line-height: 1.65; color: #444; }
 
-  /* Skills */
   .skills-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -80,36 +75,26 @@
   }
   .skills-grid .label { font-weight: 600; color: #222; }
 
-  /* Experience */
-  .exp-item { margin-bottom: 12px; }
-  .exp-item:last-child { margin-bottom: 0; }
-  .exp-top { display: flex; justify-content: space-between; align-items: baseline; }
-  .exp-role { font-size: 12px; font-weight: 700; color: #222; }
-  .exp-date { font-size: 9.5px; color: #999; font-family: 'SF Mono', 'Fira Code', monospace; }
-  .exp-company { font-size: 10.5px; color: #5558e6; font-weight: 500; margin: 2px 0 5px; }
-  .exp-list { list-style: none; font-size: 10.5px; color: #555; line-height: 1.6; }
-  .exp-list li { display: flex; gap: 6px; margin-bottom: 2px; }
-  .exp-list li::before { content: "▸"; color: #5558e6; font-weight: 700; flex-shrink: 0; }
-
-  /* Projects */
   .proj-item { margin-bottom: 10px; }
   .proj-item:last-child { margin-bottom: 0; }
   .proj-title { font-size: 12px; font-weight: 700; color: #222; }
   .proj-desc { font-size: 10.5px; color: #555; line-height: 1.55; margin-top: 2px; }
   .proj-tech { font-size: 9.5px; color: #999; font-family: 'SF Mono', 'Fira Code', monospace; margin-top: 2px; }
 
-  /* Education */
   .edu-top { display: flex; justify-content: space-between; align-items: baseline; }
   .edu-degree { font-size: 12px; font-weight: 700; color: #222; }
   .edu-date { font-size: 9.5px; color: #999; font-family: 'SF Mono', 'Fira Code', monospace; }
   .edu-school { font-size: 10.5px; color: #666; }
   .edu-gpa { font-size: 10px; color: #888; margin-top: 2px; }
+
+  .cert-list { font-size: 10.5px; color: #444; line-height: 1.8; }
+  .cert-list li { list-style: none; display: flex; gap: 8px; }
+  .cert-list li::before { content: "✦"; color: #5558e6; font-size: 8px; margin-top: 3px; flex-shrink: 0; }
 </style>
 </head>
 <body>
 <div class="page">
 
-  <!-- Header -->
   <div class="header">
     <h1>Marwan Mohamed</h1>
     <div class="role">Full Stack Developer</div>
@@ -131,13 +116,11 @@
 
   <div class="body">
 
-    <!-- Summary -->
     <div class="section">
       <div class="section-title">Professional Summary</div>
-      <p class="summary">Full Stack Developer with 4+ years of experience building robust, scalable web applications. Skilled in React, Next.js, Node.js, and cloud infrastructure. Passionate about clean architecture, performance optimization, and delivering production-ready solutions that drive business growth.</p>
+      <p class="summary">Motivated Full Stack Developer and recent Computer Science graduate with strong proficiency in React, Next.js, Node.js, and modern web technologies. Built multiple production-ready projects including e-commerce platforms and enterprise management systems. Seeking an internship/training opportunity to apply technical skills in a professional environment and contribute to real-world products.</p>
     </div>
 
-    <!-- Skills -->
     <div class="section">
       <div class="section-title">Technical Skills</div>
       <div class="skills-grid">
@@ -148,53 +131,8 @@
       </div>
     </div>
 
-    <!-- Experience -->
     <div class="section">
-      <div class="section-title">Experience</div>
-
-      <div class="exp-item">
-        <div class="exp-top">
-          <span class="exp-role">Senior Full Stack Developer</span>
-          <span class="exp-date">2023 — Present</span>
-        </div>
-        <div class="exp-company">TechCorp Inc.</div>
-        <ul class="exp-list">
-          <li>Architected microservices platform serving 100K+ MAU with 99.9% uptime</li>
-          <li>Led 5 engineers, reducing deployment cycles from 2 weeks to 2 days via CI/CD</li>
-          <li>Built a reusable component library adopted across 3 product teams</li>
-        </ul>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-top">
-          <span class="exp-role">Full Stack Developer</span>
-          <span class="exp-date">2021 — 2023</span>
-        </div>
-        <div class="exp-company">StartupHub</div>
-        <ul class="exp-list">
-          <li>Developed 5+ production apps from concept to deployment, owning the full SDLC</li>
-          <li>Implemented real-time features using WebSockets, serving 10K+ concurrent users</li>
-          <li>Reduced API response times by 40% via query optimization &amp; Redis caching</li>
-        </ul>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-top">
-          <span class="exp-role">Junior Web Developer</span>
-          <span class="exp-date">2020 — 2021</span>
-        </div>
-        <div class="exp-company">Digital Agency Co.</div>
-        <ul class="exp-list">
-          <li>Delivered 15+ client projects across diverse industries on time and within budget</li>
-          <li>Improved Lighthouse performance scores from 55 to 92 via code splitting &amp; lazy loading</li>
-          <li>Introduced modern tooling (Webpack, ESLint, Prettier) to the development workflow</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Projects -->
-    <div class="section">
-      <div class="section-title">Featured Projects</div>
+      <div class="section-title">Projects</div>
 
       <div class="proj-item">
         <div class="proj-title">ELITE — Premium Fashion E-Commerce</div>
@@ -215,7 +153,6 @@
       </div>
     </div>
 
-    <!-- Education -->
     <div class="section">
       <div class="section-title">Education</div>
       <div class="edu-top">
