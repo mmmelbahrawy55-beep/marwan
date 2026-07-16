@@ -28,7 +28,7 @@ function CodePanel({ mouse }: { mouse: { x: number; y: number } }) {
       <Float speed={1} rotationIntensity={0.15} floatIntensity={0.4}>
         <Html
           transform
-          position={[0, 0, 0]}
+          position={[2.4, 0.2, 0]}
           distanceFactor={4}
           style={{ pointerEvents: "none" }}
         >
@@ -101,15 +101,15 @@ function CodePanel({ mouse }: { mouse: { x: number; y: number } }) {
 
 function FloatingBrackets() {
   const brackets = [
-    { pos: [-2.8, 1.2, -1.5] as [number, number, number], char: "{", color: "#6366f1", size: 28 },
-    { pos: [3, -0.8, -1] as [number, number, number], char: "}", color: "#ec4899", size: 26 },
-    { pos: [-2.2, -1.5, 0] as [number, number, number], char: "</", color: "#06b6d4", size: 18 },
-    { pos: [2.8, 1.8, -0.5] as [number, number, number], char: "/>", color: "#8b5cf6", size: 18 },
-    { pos: [-3.2, 0, 1.5] as [number, number, number], char: "=>", color: "#22c55e", size: 16 },
-    { pos: [2.5, -1.8, 0.5] as [number, number, number], char: "() =>", color: "#f59e0b", size: 12 },
-    { pos: [0, 2.5, -2] as [number, number, number], char: "[]", color: "#ef4444", size: 20 },
-    { pos: [-1.5, 2, 1] as [number, number, number], char: "import", color: "#c792ea", size: 11 },
-    { pos: [1.5, -2.2, -1] as [number, number, number], char: "export", color: "#c3e88d", size: 11 },
+    { pos: [-0.5, 1.8, -1.5] as [number, number, number], char: "{", color: "#6366f1", size: 28 },
+    { pos: [4.8, -0.5, -1] as [number, number, number], char: "}", color: "#ec4899", size: 26 },
+    { pos: [0.2, -1.8, 0] as [number, number, number], char: "</", color: "#06b6d4", size: 18 },
+    { pos: [5, 1.8, -0.5] as [number, number, number], char: "/>", color: "#8b5cf6", size: 18 },
+    { pos: [-1, 0.5, 1.5] as [number, number, number], char: "=>", color: "#22c55e", size: 16 },
+    { pos: [4.5, -2, 0.5] as [number, number, number], char: "() =>", color: "#f59e0b", size: 12 },
+    { pos: [2, 2.5, -2] as [number, number, number], char: "[]", color: "#ef4444", size: 20 },
+    { pos: [0, 2.2, 1] as [number, number, number], char: "import", color: "#c792ea", size: 11 },
+    { pos: [4, -2.5, -1] as [number, number, number], char: "export", color: "#c3e88d", size: 11 },
   ];
 
   return (
@@ -194,7 +194,7 @@ function OrbitDots() {
 export default function Scene3D({ mouse }: { mouse: { x: number; y: number } }) {
   return (
     <Canvas
-      camera={{ position: [0, 0, 6], fov: 42 }}
+      camera={{ position: [1.5, 0, 6], fov: 42 }}
       dpr={[1, 2]}
       gl={{ antialias: true, alpha: true }}
       style={{
