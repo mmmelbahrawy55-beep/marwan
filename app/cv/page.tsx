@@ -1,14 +1,14 @@
 "use client";
 
 import { useRef, useCallback } from "react";
-import html2canvas from "html2canvas";
-import jsPDF from "jspdf";
 
 export default function CVPage() {
   const cvRef = useRef<HTMLDivElement>(null);
 
   const downloadPDF = useCallback(async () => {
     if (!cvRef.current) return;
+    const html2canvas = (await import("html2canvas")).default;
+    const jsPDF = (await import("jspdf")).default;
     const el = cvRef.current;
     const canvas = await html2canvas(el, { scale: 2, useCORS: true, backgroundColor: "#ffffff" });
     const imgData = canvas.toDataURL("image/png");
