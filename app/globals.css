@@ -1,22 +1,22 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-bg: #f8f9fc;
-  --color-surface: #ffffff;
-  --color-surface-hover: #f1f3f9;
-  --color-border: #e2e5f1;
-  --color-border-light: #edf0f7;
-  --color-text: #5a6178;
-  --color-text-light: #3d4460;
-  --color-text-white: #1a1d2e;
-  --color-accent: #5558e6;
-  --color-accent-dark: #4345c9;
-  --color-accent-light: rgba(85, 88, 230, 0.06);
-  --color-accent-glow: rgba(85, 88, 230, 0.15);
-  --color-success: #16a34a;
-  --color-pink: #db2777;
-  --color-cyan: #0891b2;
-  --color-purple: #7c3aed;
+  --color-bg: #050510;
+  --color-surface: #0a0a1a;
+  --color-surface-hover: #0f0f25;
+  --color-border: #161630;
+  --color-border-light: #1e1e40;
+  --color-text: #7777aa;
+  --color-text-light: #aaaaCC;
+  --color-text-white: #eeeeFF;
+  --color-accent: #6366f1;
+  --color-accent-dark: #4f46e5;
+  --color-accent-light: rgba(99, 102, 241, 0.06);
+  --color-accent-glow: rgba(99, 102, 241, 0.25);
+  --color-success: #22c55e;
+  --color-pink: #ec4899;
+  --color-cyan: #06b6d4;
+  --color-purple: #8b5cf6;
   --font-sans: "Geist", system-ui, -apple-system, sans-serif;
   --font-mono: "Geist Mono", "Fira Code", monospace;
 }
@@ -60,8 +60,8 @@ body {
 }
 
 @keyframes border-glow {
-  0%, 100% { border-color: rgba(85, 88, 230, 0.08); }
-  50% { border-color: rgba(85, 88, 230, 0.2); }
+  0%, 100% { border-color: rgba(99, 102, 241, 0.08); }
+  50% { border-color: rgba(99, 102, 241, 0.25); }
 }
 
 .noise-overlay {
@@ -69,17 +69,17 @@ body {
   inset: 0;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.008;
+  opacity: 0.012;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 256px 256px;
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(10, 10, 26, 0.65);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(85, 88, 230, 0.06);
+  border: 1px solid rgba(99, 102, 241, 0.05);
 }
 
 .glow-border {
@@ -87,7 +87,7 @@ body {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #5558e6, #7c3aed, #db2777);
+  background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -96,7 +96,7 @@ body {
 }
 
 .gradient-text-alt {
-  background: linear-gradient(135deg, #5558e6, #0891b2);
+  background: linear-gradient(135deg, #6366f1, #06b6d4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -116,21 +116,7 @@ body {
 }
 
 @media print {
-  body {
-    background: white !important;
-    margin: 0;
-    padding: 0;
-  }
-
-  .noise-overlay,
-  nav,
-  footer {
-    display: none !important;
-  }
-
-  * {
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-    color-adjust: exact !important;
-  }
+  body { background: white !important; margin: 0; padding: 0; }
+  .noise-overlay, nav, footer { display: none !important; }
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
 }
