@@ -192,7 +192,7 @@ export default function Hero() {
                 className="mt-10 flex items-center gap-3"
               >
                 {[
-                  { icon: "github", href: "https://github.com/marwan" },
+                  { icon: "github", href: "https://github.com/mmmelbahrawy55-beep" },
                   { icon: "linkedin", href: "https://linkedin.com/in/marwan" },
                   { icon: "x-twitter", href: "https://twitter.com/marwan" },
                 ].map((s) => (

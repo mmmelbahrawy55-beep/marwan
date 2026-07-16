@@ -5,31 +5,31 @@ import { motion, useInView } from "framer-motion";
 
 const projects = [
   {
-    title: "E-Commerce Platform",
-    desc: "Full-featured e-commerce platform with real-time inventory management, Stripe payments, role-based admin dashboard, and 50K+ monthly active users.",
-    tech: ["React", "Node.js", "PostgreSQL", "Stripe", "Redis"],
+    title: "ELITE — Premium Fashion",
+    desc: "Full-featured luxury fashion e-commerce platform with product collections, shopping cart, lookbook, and responsive design. Built with a bold, high-end brand identity.",
+    tech: ["React", "Next.js", "Tailwind CSS", "Vercel"],
     gradient: "from-indigo-500/20 via-purple-500/10 to-pink-500/5",
     accentColor: "#6366f1",
-    icon: "fa-solid fa-cart-shopping",
-    links: { code: "#", live: "#" },
+    icon: "fa-solid fa-shirt",
+    links: { code: "https://github.com/mmmelbahrawy55-beep", live: "https://shop-plum-theta-83.vercel.app/" },
   },
   {
-    title: "Analytics Dashboard",
-    desc: "Real-time business analytics platform featuring interactive D3.js charts, custom report builder, data export, and sub-second query performance on 1M+ records.",
-    tech: ["Next.js", "TypeScript", "D3.js", "MongoDB", "Docker"],
+    title: "ELBA 7RAWY — Advertising",
+    desc: "Professional website for a full-service advertising company. Features a materials catalog with 14+ products, pricing, project workflow, and client contact system.",
+    tech: ["HTML", "CSS", "JavaScript", "Firebase"],
     gradient: "from-emerald-500/20 via-teal-500/10 to-cyan-500/5",
     accentColor: "#10b981",
-    icon: "fa-solid fa-chart-line",
-    links: { code: "#", live: "#" },
+    icon: "fa-solid fa-bullhorn",
+    links: { code: "https://github.com/mmmelbahrawy55-beep", live: "https://elba7rawy-91214.web.app/" },
   },
   {
-    title: "Real-Time Chat App",
-    desc: "Scalable messaging platform with WebSocket support, end-to-end encryption, file sharing, typing indicators, and 10K+ concurrent user capacity.",
-    tech: ["React", "Socket.io", "Node.js", "Redis", "AWS"],
+    title: "Company Management System",
+    desc: "Comprehensive enterprise management system for employees, clients, warehouses, sales, accounting, and projects. Full CRUD with authentication and real-time data.",
+    tech: ["React", "Node.js", "PostgreSQL", "REST API"],
     gradient: "from-cyan-500/20 via-blue-500/10 to-indigo-500/5",
     accentColor: "#06b6d4",
-    icon: "fa-solid fa-comments",
-    links: { code: "#", live: "#" },
+    icon: "fa-solid fa-building",
+    links: { code: "https://github.com/mmmelbahrawy55-beep", live: "https://company-management-system-six.vercel.app/" },
   },
 ];
 
@@ -190,7 +190,7 @@ export default function Projects() {
           className="mt-12 text-center"
         >
           <a
-            href="https://github.com/marwan"
+            href="https://github.com/mmmelbahrawy55-beep"
             target="_blank"
             className="inline-flex items-center gap-2 px-8 py-3 text-sm font-medium text-text-light glass rounded-full hover:text-text-white hover:border-accent/20 transition-all duration-300 hover:-translate-y-1"
           >
