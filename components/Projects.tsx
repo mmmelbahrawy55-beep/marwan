@@ -8,8 +8,8 @@ const projects = [
     title: "ELITE — Premium Fashion",
     desc: "End-to-end luxury fashion e-commerce platform featuring dynamic product collections, responsive lookbook, shopping cart system, and a bold brand identity designed for high-end retail.",
     tech: ["React", "Next.js", "Tailwind CSS", "Vercel"],
-    gradient: "from-indigo-500/20 via-purple-500/10 to-pink-500/5",
-    accentColor: "#6366f1",
+    gradient: "from-indigo-500/10 via-purple-500/5 to-pink-500/[0.02]",
+    accentColor: "#5558e6",
     icon: "fa-solid fa-shirt",
     links: { code: "https://github.com/mmmelbahrawy55-beep", live: "https://shop-plum-theta-83.vercel.app/" },
   },
@@ -17,8 +17,8 @@ const projects = [
     title: "ELBA 7RAWY — Advertising",
     desc: "Full-stack digital presence for a leading advertising agency. Includes a dynamic materials catalog with 14+ product categories, real-time pricing, project workflow tracking, and integrated client contact system.",
     tech: ["HTML", "CSS", "JavaScript", "Firebase"],
-    gradient: "from-emerald-500/20 via-teal-500/10 to-cyan-500/5",
-    accentColor: "#10b981",
+    gradient: "from-emerald-500/10 via-teal-500/5 to-cyan-500/[0.02]",
+    accentColor: "#16a34a",
     icon: "fa-solid fa-bullhorn",
     links: { code: "https://github.com/mmmelbahrawy55-beep", live: "https://elba7rawy-91214.web.app/" },
   },
@@ -26,8 +26,8 @@ const projects = [
     title: "Company Management System",
     desc: "Comprehensive enterprise resource planning (ERP) system covering employee management, client relations, inventory control, sales tracking, accounting, and project oversight — built with secure authentication and real-time data synchronization.",
     tech: ["React", "Node.js", "PostgreSQL", "REST API"],
-    gradient: "from-cyan-500/20 via-blue-500/10 to-indigo-500/5",
-    accentColor: "#06b6d4",
+    gradient: "from-cyan-500/10 via-blue-500/5 to-indigo-500/[0.02]",
+    accentColor: "#0891b2",
     icon: "fa-solid fa-building",
     links: { code: "https://github.com/mmmelbahrawy55-beep", live: "https://company-management-system-six.vercel.app/" },
   },
@@ -81,31 +81,28 @@ function ProjectCard({
             borderColor: isHovered ? `${project.accentColor}20` : undefined,
           }}
         >
-          {/* Top glow on hover */}
           <div
             className="absolute top-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-500"
             style={{ background: `linear-gradient(90deg, transparent, ${project.accentColor}, transparent)` }}
           />
 
-          {/* Image area */}
           <div className={`h-44 bg-gradient-to-br ${project.gradient} flex items-center justify-center relative overflow-hidden`}>
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.05),transparent_70%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(85,88,230,0.03),transparent_70%)]" />
             <motion.div
               animate={isHovered ? { scale: 1.15, rotate: 5 } : { scale: 1, rotate: 0 }}
               transition={{ duration: 0.3 }}
-              className="text-5xl opacity-20 group-hover:opacity-40 transition-opacity duration-300"
+              className="text-5xl opacity-15 group-hover:opacity-30 transition-opacity duration-300"
               style={{ color: project.accentColor }}
             >
               <i className={project.icon} />
             </motion.div>
           </div>
 
-          {/* Content */}
           <div className="p-6">
-            <h3 className="text-lg font-semibold text-text-white group-hover:text-accent transition-colors duration-200">
+            <h3 className="text-lg font-semibold text-[#1a1d2e] group-hover:text-[#5558e6] transition-colors duration-200">
               {project.title}
             </h3>
-            <p className="mt-3 text-sm text-text leading-relaxed">
+            <p className="mt-3 text-sm text-[#5a6178] leading-relaxed">
               {project.desc}
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
@@ -115,7 +112,7 @@ function ProjectCard({
                   className="text-[11px] font-mono px-2.5 py-1 rounded-full"
                   style={{
                     color: project.accentColor,
-                    background: `${project.accentColor}10`,
+                    background: `${project.accentColor}08`,
                   }}
                 >
                   {t}
@@ -123,10 +120,10 @@ function ProjectCard({
               ))}
             </div>
             <div className="mt-5 flex gap-4">
-              <a href={project.links.code} className="text-xs text-text hover:text-accent transition-colors flex items-center gap-1.5 font-medium">
+              <a href={project.links.code} className="text-xs text-[#5a6178] hover:text-[#5558e6] transition-colors flex items-center gap-1.5 font-medium">
                 <i className="fa-brands fa-github" /> Code
               </a>
-              <a href={project.links.live} className="text-xs text-text hover:text-accent transition-colors flex items-center gap-1.5 font-medium">
+              <a href={project.links.live} className="text-xs text-[#5a6178] hover:text-[#5558e6] transition-colors flex items-center gap-1.5 font-medium">
                 <i className="fa-solid fa-up-right-from-square" /> Live Demo
               </a>
             </div>
@@ -152,7 +149,7 @@ export default function Projects() {
 
   return (
     <section id="projects" ref={ref} className="py-24 md:py-36 relative">
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/10 to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#5558e6]/10 to-transparent" />
 
       <div className="container">
         <motion.div
@@ -161,17 +158,17 @@ export default function Projects() {
           className="text-center mb-16"
         >
           <motion.div custom={0} variants={fadeUp} className="flex items-center justify-center gap-3 mb-6">
-            <div className="h-px w-12 bg-gradient-to-r from-transparent to-accent/30" />
-            <span className="text-[11px] font-mono text-accent tracking-[0.2em] uppercase px-3 py-1 bg-accent-light rounded-full border border-accent/10">
+            <div className="h-px w-12 bg-gradient-to-r from-transparent to-[#5558e6]/30" />
+            <span className="text-[11px] font-mono text-[#5558e6] tracking-[0.2em] uppercase px-3 py-1 bg-[#5558e6]/[0.05] rounded-full border border-[#5558e6]/10">
               03 — Projects
             </span>
-            <div className="h-px w-12 bg-gradient-to-l from-transparent to-accent/30" />
+            <div className="h-px w-12 bg-gradient-to-l from-transparent to-[#5558e6]/30" />
           </motion.div>
 
           <motion.h2
             custom={1}
             variants={fadeUp}
-            className="text-3xl md:text-[2.6rem] font-bold text-text-white"
+            className="text-3xl md:text-[2.6rem] font-bold text-[#1a1d2e]"
           >
             Featured <span className="gradient-text">work</span>
           </motion.h2>
@@ -192,7 +189,7 @@ export default function Projects() {
           <a
             href="https://github.com/mmmelbahrawy55-beep"
             target="_blank"
-            className="inline-flex items-center gap-2 px-8 py-3 text-sm font-medium text-text-light glass rounded-full hover:text-text-white hover:border-accent/20 transition-all duration-300 hover:-translate-y-1"
+            className="inline-flex items-center gap-2 px-8 py-3 text-sm font-medium text-[#3d4460] glass rounded-full hover:text-[#1a1d2e] hover:border-[#5558e6]/20 transition-all duration-300 hover:-translate-y-1"
           >
             <i className="fa-brands fa-github" />
             View All on GitHub

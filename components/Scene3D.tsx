@@ -35,44 +35,44 @@ function CodePanel({ mouse }: { mouse: { x: number; y: number } }) {
           <div
             style={{
               width: "320px",
-              background: "rgba(10, 10, 30, 0.85)",
+              background: "rgba(255, 255, 255, 0.85)",
               backdropFilter: "blur(20px)",
               borderRadius: "16px",
-              border: "1px solid rgba(99, 102, 241, 0.15)",
+              border: "1px solid rgba(85, 88, 230, 0.1)",
               overflow: "hidden",
-              boxShadow: "0 25px 60px rgba(0,0,0,0.5), 0 0 40px rgba(99,102,241,0.1)",
+              boxShadow: "0 25px 60px rgba(0,0,0,0.08), 0 0 40px rgba(85,88,230,0.06)",
             }}
           >
             {/* Window dots */}
-            <div
+              <div
               style={{
                 display: "flex",
                 alignItems: "center",
                 gap: "6px",
                 padding: "10px 14px",
-                borderBottom: "1px solid rgba(99,102,241,0.08)",
-                background: "rgba(0,0,0,0.3)",
+                borderBottom: "1px solid rgba(85,88,230,0.06)",
+                background: "rgba(248,249,252,0.5)",
               }}
             >
               <div style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#ff5f57" }} />
               <div style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#ffbd2e" }} />
               <div style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#28c840" }} />
-              <span style={{ marginLeft: "auto", fontSize: "10px", color: "rgba(255,255,255,0.3)", fontFamily: "monospace" }}>
+              <span style={{ marginLeft: "auto", fontSize: "10px", color: "rgba(0,0,0,0.2)", fontFamily: "monospace" }}>
                 developer.ts
               </span>
             </div>
 
             {/* Code content */}
             <div style={{ padding: "16px 18px", fontFamily: "'Fira Code', 'Courier New', monospace", fontSize: "12px", lineHeight: "1.9" }}>
-              <div><span style={{ color: "#c792ea" }}>const</span> <span style={{ color: "#82aaff" }}>developer</span> <span style={{ color: "#89ddff" }}>= {"{"}</span></div>
-              <div style={{ paddingLeft: "16px" }}><span style={{ color: "#f07178" }}>name</span><span style={{ color: "#89ddff" }}>: </span><span style={{ color: "#c3e88d" }}>"Marwan Mohamed"</span><span style={{ color: "#89ddff" }}>,</span></div>
-              <div style={{ paddingLeft: "16px" }}><span style={{ color: "#f07178" }}>role</span><span style={{ color: "#89ddff" }}>: </span><span style={{ color: "#c3e88d" }}>"Full Stack Dev"</span><span style={{ color: "#89ddff" }}>,</span></div>
-              <div style={{ paddingLeft: "16px" }}><span style={{ color: "#f07178" }}>stack</span><span style={{ color: "#89ddff" }}>: [</span></div>
-              <div style={{ paddingLeft: "28px" }}><span style={{ color: "#c3e88d" }}>"React"</span><span style={{ color: "#89ddff" }}>,</span> <span style={{ color: "#c3e88d" }}>"Node.js"</span><span style={{ color: "#89ddff" }}>,</span></div>
-              <div style={{ paddingLeft: "28px" }}><span style={{ color: "#c3e88d" }}>"TypeScript"</span><span style={{ color: "#89ddff" }}>,</span> <span style={{ color: "#c3e88d" }}>"Next.js"</span></div>
-              <div style={{ paddingLeft: "16px" }}><span style={{ color: "#89ddff" }}>]</span><span style={{ color: "#89ddff" }}>,</span></div>
-              <div style={{ paddingLeft: "16px" }}><span style={{ color: "#f07178" }}>passion</span><span style={{ color: "#89ddff" }}>: </span><span style={{ color: "#c3e88d" }}>"Building great products"</span></div>
-              <div><span style={{ color: "#89ddff" }}>{"}"}</span><span style={{ color: "#89ddff" }}>;</span></div>
+              <div><span style={{ color: "#7c3aed" }}>const</span> <span style={{ color: "#5558e6" }}>developer</span> <span style={{ color: "#0891b2" }}>= {"{"}</span></div>
+              <div style={{ paddingLeft: "16px" }}><span style={{ color: "#db2777" }}>name</span><span style={{ color: "#0891b2" }}>: </span><span style={{ color: "#16a34a" }}>"Marwan Mohamed"</span><span style={{ color: "#0891b2" }}>,</span></div>
+              <div style={{ paddingLeft: "16px" }}><span style={{ color: "#db2777" }}>role</span><span style={{ color: "#0891b2" }}>: </span><span style={{ color: "#16a34a" }}>"Full Stack Dev"</span><span style={{ color: "#0891b2" }}>,</span></div>
+              <div style={{ paddingLeft: "16px" }}><span style={{ color: "#db2777" }}>stack</span><span style={{ color: "#0891b2" }}>: [</span></div>
+              <div style={{ paddingLeft: "28px" }}><span style={{ color: "#16a34a" }}>"React"</span><span style={{ color: "#0891b2" }}>,</span> <span style={{ color: "#16a34a" }}>"Node.js"</span><span style={{ color: "#0891b2" }}>,</span></div>
+              <div style={{ paddingLeft: "28px" }}><span style={{ color: "#16a34a" }}>"TypeScript"</span><span style={{ color: "#0891b2" }}>,</span> <span style={{ color: "#16a34a" }}>"Next.js"</span></div>
+              <div style={{ paddingLeft: "16px" }}><span style={{ color: "#0891b2" }}>]</span><span style={{ color: "#0891b2" }}>,</span></div>
+              <div style={{ paddingLeft: "16px" }}><span style={{ color: "#db2777" }}>passion</span><span style={{ color: "#0891b2" }}>: </span><span style={{ color: "#16a34a" }}>"Building great products"</span></div>
+              <div><span style={{ color: "#0891b2" }}>{"}"}</span><span style={{ color: "#0891b2" }}>;</span></div>
             </div>
 
             {/* Status bar */}
@@ -81,10 +81,10 @@ function CodePanel({ mouse }: { mouse: { x: number; y: number } }) {
                 display: "flex",
                 justifyContent: "space-between",
                 padding: "6px 14px",
-                borderTop: "1px solid rgba(99,102,241,0.08)",
-                background: "rgba(99,102,241,0.03)",
+                borderTop: "1px solid rgba(85,88,230,0.06)",
+                background: "rgba(248,249,252,0.5)",
                 fontSize: "9px",
-                color: "rgba(255,255,255,0.25)",
+                color: "rgba(0,0,0,0.2)",
                 fontFamily: "monospace",
               }}
             >
@@ -101,15 +101,15 @@ function CodePanel({ mouse }: { mouse: { x: number; y: number } }) {
 
 function FloatingBrackets() {
   const brackets = [
-    { pos: [-0.5, 1.8, -1.5] as [number, number, number], char: "{", color: "#6366f1", size: 28 },
-    { pos: [4.8, -0.5, -1] as [number, number, number], char: "}", color: "#ec4899", size: 26 },
-    { pos: [0.2, -1.8, 0] as [number, number, number], char: "</", color: "#06b6d4", size: 18 },
-    { pos: [5, 1.8, -0.5] as [number, number, number], char: "/>", color: "#8b5cf6", size: 18 },
-    { pos: [-1, 0.5, 1.5] as [number, number, number], char: "=>", color: "#22c55e", size: 16 },
-    { pos: [4.5, -2, 0.5] as [number, number, number], char: "() =>", color: "#f59e0b", size: 12 },
-    { pos: [2, 2.5, -2] as [number, number, number], char: "[]", color: "#ef4444", size: 20 },
-    { pos: [0, 2.2, 1] as [number, number, number], char: "import", color: "#c792ea", size: 11 },
-    { pos: [4, -2.5, -1] as [number, number, number], char: "export", color: "#c3e88d", size: 11 },
+    { pos: [-0.5, 1.8, -1.5] as [number, number, number], char: "{", color: "#5558e6", size: 28 },
+    { pos: [4.8, -0.5, -1] as [number, number, number], char: "}", color: "#db2777", size: 26 },
+    { pos: [0.2, -1.8, 0] as [number, number, number], char: "</", color: "#0891b2", size: 18 },
+    { pos: [5, 1.8, -0.5] as [number, number, number], char: "/>", color: "#7c3aed", size: 18 },
+    { pos: [-1, 0.5, 1.5] as [number, number, number], char: "=>", color: "#16a34a", size: 16 },
+    { pos: [4.5, -2, 0.5] as [number, number, number], char: "() =>", color: "#d97706", size: 12 },
+    { pos: [2, 2.5, -2] as [number, number, number], char: "[]", color: "#dc2626", size: 20 },
+    { pos: [0, 2.2, 1] as [number, number, number], char: "import", color: "#7c3aed", size: 11 },
+    { pos: [4, -2.5, -1] as [number, number, number], char: "export", color: "#16a34a", size: 11 },
   ];
 
   return (
@@ -161,9 +161,9 @@ function OrbitDots() {
   const colors = useMemo(() => {
     const cols = new Float32Array(count * 3);
     const palette = [
-      [0.388, 0.4, 0.945],
-      [0.929, 0.282, 0.6],
-      [0.024, 0.714, 0.831],
+      [0.333, 0.345, 0.902],
+      [0.863, 0.153, 0.467],
+      [0.031, 0.569, 0.698],
     ];
     for (let i = 0; i < count; i++) {
       const c = palette[i % 3];
@@ -206,9 +206,9 @@ export default function Scene3D({ mouse }: { mouse: { x: number; y: number } }) 
       }}
     >
       <ambientLight intensity={0.2} />
-      <pointLight position={[4, 3, 4]} intensity={1.2} color="#6366f1" distance={12} />
-      <pointLight position={[-4, -2, 3]} intensity={0.6} color="#ec4899" distance={10} />
-      <pointLight position={[0, 3, -4]} intensity={0.4} color="#06b6d4" distance={8} />
+      <pointLight position={[4, 3, 4]} intensity={1} color="#5558e6" distance={12} />
+      <pointLight position={[-4, -2, 3]} intensity={0.5} color="#db2777" distance={10} />
+      <pointLight position={[0, 3, -4]} intensity={0.3} color="#0891b2" distance={8} />
 
       <CodePanel mouse={mouse} />
       <FloatingBrackets />

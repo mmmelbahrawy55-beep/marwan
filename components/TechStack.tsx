@@ -7,7 +7,7 @@ const categories = [
   {
     label: "Frontend",
     icon: "fas fa-code",
-    color: "#6366f1",
+    color: "#5558e6",
     items: [
       { name: "React / Next.js", level: 95 },
       { name: "TypeScript", level: 92 },
@@ -18,7 +18,7 @@ const categories = [
   {
     label: "Backend",
     icon: "fas fa-server",
-    color: "#ec4899",
+    color: "#db2777",
     items: [
       { name: "Node.js / Express", level: 92 },
       { name: "Python / Django", level: 85 },
@@ -29,7 +29,7 @@ const categories = [
   {
     label: "DevOps & Cloud",
     icon: "fas fa-cloud",
-    color: "#06b6d4",
+    color: "#0891b2",
     items: [
       { name: "Docker / K8s", level: 85 },
       { name: "AWS / Azure", level: 82 },
@@ -46,10 +46,10 @@ function SkillBar({ name, level, index, color }: { name: string; level: number; 
   return (
     <div ref={ref} className="space-y-2">
       <div className="flex justify-between text-sm">
-        <span className="text-text-light font-medium">{name}</span>
+        <span className="text-[#3d4460] font-medium">{name}</span>
         <span className="font-mono text-xs" style={{ color }}>{level}%</span>
       </div>
-      <div className="h-2 bg-border/50 rounded-full overflow-hidden">
+      <div className="h-2 bg-[#e2e5f1]/50 rounded-full overflow-hidden">
         <motion.div
           initial={{ width: 0 }}
           animate={isInView ? { width: `${level}%` } : {}}
@@ -57,12 +57,12 @@ function SkillBar({ name, level, index, color }: { name: string; level: number; 
           className="h-full rounded-full relative"
           style={{
             background: `linear-gradient(90deg, ${color}, ${color}88)`,
-            boxShadow: isInView ? `0 0 20px ${color}40` : "none",
+            boxShadow: isInView ? `0 0 20px ${color}30` : "none",
           }}
         >
           <div
             className="absolute inset-0 rounded-full"
-            style={{ background: `linear-gradient(90deg, transparent, ${color}30)`, }}
+            style={{ background: `linear-gradient(90deg, transparent, ${color}20)`, }}
           />
         </motion.div>
       </div>
@@ -85,7 +85,7 @@ export default function TechStack() {
 
   return (
     <section id="tech" ref={ref} className="py-24 md:py-36 relative">
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/10 to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#5558e6]/10 to-transparent" />
 
       <div className="container">
         <motion.div
@@ -94,17 +94,17 @@ export default function TechStack() {
           className="text-center mb-16"
         >
           <motion.div custom={0} variants={fadeUp} className="flex items-center justify-center gap-3 mb-6">
-            <div className="h-px w-12 bg-gradient-to-r from-transparent to-accent/30" />
-            <span className="text-[11px] font-mono text-accent tracking-[0.2em] uppercase px-3 py-1 bg-accent-light rounded-full border border-accent/10">
+            <div className="h-px w-12 bg-gradient-to-r from-transparent to-[#5558e6]/30" />
+            <span className="text-[11px] font-mono text-[#5558e6] tracking-[0.2em] uppercase px-3 py-1 bg-[#5558e6]/[0.05] rounded-full border border-[#5558e6]/10">
               02 — Tech Stack
             </span>
-            <div className="h-px w-12 bg-gradient-to-l from-transparent to-accent/30" />
+            <div className="h-px w-12 bg-gradient-to-l from-transparent to-[#5558e6]/30" />
           </motion.div>
 
           <motion.h2
             custom={1}
             variants={fadeUp}
-            className="text-3xl md:text-[2.6rem] font-bold text-text-white"
+            className="text-3xl md:text-[2.6rem] font-bold text-[#1a1d2e]"
           >
             Tools I use daily to{" "}
             <span className="gradient-text">build amazing products</span>
@@ -127,25 +127,24 @@ export default function TechStack() {
                 borderColor: `${cat.color}10`,
               }}
             >
-              {/* Glow effect */}
               <div
                 className="absolute top-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                 style={{ background: `linear-gradient(90deg, transparent, ${cat.color}, transparent)` }}
               />
               <div
-                className="absolute -top-24 -right-24 w-48 h-48 rounded-full blur-[80px] opacity-0 group-hover:opacity-20 transition-opacity duration-500"
+                className="absolute -top-24 -right-24 w-48 h-48 rounded-full blur-[80px] opacity-0 group-hover:opacity-10 transition-opacity duration-500"
                 style={{ background: cat.color }}
               />
 
               <div className="relative z-10">
-                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-border/50">
+                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-[#e2e5f1]/50">
                   <div
                     className="w-10 h-10 rounded-xl flex items-center justify-center"
-                    style={{ background: `${cat.color}15` }}
+                    style={{ background: `${cat.color}10` }}
                   >
                     <i className={cat.icon} style={{ color: cat.color }} />
                   </div>
-                  <h3 className="text-lg font-semibold text-text-white">{cat.label}</h3>
+                  <h3 className="text-lg font-semibold text-[#1a1d2e]">{cat.label}</h3>
                 </div>
                 <div className="space-y-5">
                   {cat.items.map((skill, j) => (
