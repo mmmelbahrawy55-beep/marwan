@@ -44,3 +44,5 @@ start.bat
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+.vercel

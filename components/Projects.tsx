@@ -63,7 +63,7 @@ function ProjectCard({
     <motion.div
       initial={{ opacity: 0, y: 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ delay: 0.15 * index, duration: 0.6, ease: "easeOut" }}
+      transition={{ delay: 0.15 * index, duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const }}
     >
       <div
         ref={cardRef}
@@ -142,7 +142,7 @@ const fadeUp = {
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.1, duration: 0.5, ease: "easeOut" },
+    transition: { delay: i * 0.1, duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as const },
   }),
 };
 
