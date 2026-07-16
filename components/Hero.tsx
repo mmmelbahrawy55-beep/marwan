@@ -193,8 +193,6 @@ export default function Hero() {
               >
                 {[
                   { icon: "github", href: "https://github.com/mmmelbahrawy55-beep" },
-                  { icon: "linkedin", href: "https://linkedin.com/in/marwan" },
-                  { icon: "x-twitter", href: "https://twitter.com/marwan" },
                 ].map((s) => (
                   <a
                     key={s.icon}

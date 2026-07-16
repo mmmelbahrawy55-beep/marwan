@@ -6,7 +6,7 @@ import { motion, useInView } from "framer-motion";
 const projects = [
   {
     title: "ELITE — Premium Fashion",
-    desc: "Full-featured luxury fashion e-commerce platform with product collections, shopping cart, lookbook, and responsive design. Built with a bold, high-end brand identity.",
+    desc: "End-to-end luxury fashion e-commerce platform featuring dynamic product collections, responsive lookbook, shopping cart system, and a bold brand identity designed for high-end retail.",
     tech: ["React", "Next.js", "Tailwind CSS", "Vercel"],
     gradient: "from-indigo-500/20 via-purple-500/10 to-pink-500/5",
     accentColor: "#6366f1",
@@ -15,7 +15,7 @@ const projects = [
   },
   {
     title: "ELBA 7RAWY — Advertising",
-    desc: "Professional website for a full-service advertising company. Features a materials catalog with 14+ products, pricing, project workflow, and client contact system.",
+    desc: "Full-stack digital presence for a leading advertising agency. Includes a dynamic materials catalog with 14+ product categories, real-time pricing, project workflow tracking, and integrated client contact system.",
     tech: ["HTML", "CSS", "JavaScript", "Firebase"],
     gradient: "from-emerald-500/20 via-teal-500/10 to-cyan-500/5",
     accentColor: "#10b981",
@@ -24,7 +24,7 @@ const projects = [
   },
   {
     title: "Company Management System",
-    desc: "Comprehensive enterprise management system for employees, clients, warehouses, sales, accounting, and projects. Full CRUD with authentication and real-time data.",
+    desc: "Comprehensive enterprise resource planning (ERP) system covering employee management, client relations, inventory control, sales tracking, accounting, and project oversight — built with secure authentication and real-time data synchronization.",
     tech: ["React", "Node.js", "PostgreSQL", "REST API"],
     gradient: "from-cyan-500/20 via-blue-500/10 to-indigo-500/5",
     accentColor: "#06b6d4",

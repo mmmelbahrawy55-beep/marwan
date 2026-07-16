@@ -22,7 +22,7 @@ export default function Contact() {
     const form = e.currentTarget;
     const data = new FormData(form);
 
-    const mailto = `mailto:marwan.mohamed@example.com?subject=${encodeURIComponent(
+    const mailto = `mailto:m.m.melbahrawy55@gmail.com?subject=${encodeURIComponent(
       (data.get("subject") as string) || "Portfolio Contact"
     )}&body=${encodeURIComponent(
       `Name: ${data.get("name")}\nEmail: ${data.get("email")}\n\n${data.get("message")}`
@@ -75,9 +75,8 @@ export default function Contact() {
           <motion.div custom={3} variants={fadeUp} className="md:col-span-2 space-y-6">
             <div className="glass rounded-2xl p-6 space-y-5">
               {[
-                { icon: "fas fa-envelope", label: "Email", value: "marwan.mohamed@example.com", href: "mailto:marwan.mohamed@example.com" },
-                { icon: "fab fa-github", label: "GitHub", value: "github.com/marwan", href: "https://github.com/marwan" },
-                { icon: "fab fa-linkedin-in", label: "LinkedIn", value: "linkedin.com/in/marwan", href: "https://linkedin.com/in/marwan" },
+                { icon: "fas fa-envelope", label: "Email", value: "m.m.melbahrawy55@gmail.com", href: "mailto:m.m.melbahrawy55@gmail.com" },
+                { icon: "fab fa-github", label: "GitHub", value: "github.com/mmmelbahrawy55-beep", href: "https://github.com/mmmelbahrawy55-beep" },
                 { icon: "fas fa-map-marker-alt", label: "Location", value: "Cairo, Egypt", href: undefined },
               ].map((item) => (
                 <div key={item.label} className="flex items-start gap-3">

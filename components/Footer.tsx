@@ -4,8 +4,6 @@ import { motion } from "framer-motion";
 
 const socials = [
   { icon: "fa-brands fa-github", href: "https://github.com/mmmelbahrawy55-beep" },
-  { icon: "fa-brands fa-linkedin-in", href: "https://linkedin.com/in/marwan" },
-  { icon: "fa-brands fa-x-twitter", href: "https://twitter.com/marwan" },
 ];
 
 export default function Footer() {
