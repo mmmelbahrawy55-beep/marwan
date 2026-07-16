@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marwan Mohamed — CV</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page { size: A4; margin: 0; }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: #fff;
+    color: #333;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    background: #fff;
+    overflow: hidden;
+  }
+
+  @media screen {
+    .page { box-shadow: 0 4px 40px rgba(0,0,0,0.08); margin: 20px auto; }
+    body { background: #f0f0f5; }
+  }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #5558e6, #7c3aed);
+    padding: 28px 36px 24px;
+    color: #fff;
+  }
+  .header h1 { font-size: 26px; font-weight: 800; letter-spacing: -0.5px; }
+  .header .role { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.8); margin-top: 2px; }
+  .header .contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 12px;
+    font-size: 10.5px;
+    color: rgba(255,255,255,0.75);
+  }
+  .header .contact span { display: flex; align-items: center; gap: 5px; }
+  .header .contact svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 2; }
+
+  /* Body */
+  .body { padding: 20px 36px 28px; }
+
+  /* Section */
+  .section { margin-bottom: 18px; }
+  .section-title {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #5558e6;
+    border-bottom: 2px solid rgba(85,88,230,0.15);
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+  }
+
+  /* Summary */
+  .summary { font-size: 11px; line-height: 1.65; color: #444; }
+
+  /* Skills */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px 24px;
+    font-size: 10.5px;
+    color: #444;
+  }
+  .skills-grid .label { font-weight: 600; color: #222; }
+
+  /* Experience */
+  .exp-item { margin-bottom: 12px; }
+  .exp-item:last-child { margin-bottom: 0; }
+  .exp-top { display: flex; justify-content: space-between; align-items: baseline; }
+  .exp-role { font-size: 12px; font-weight: 700; color: #222; }
+  .exp-date { font-size: 9.5px; color: #999; font-family: 'SF Mono', 'Fira Code', monospace; }
+  .exp-company { font-size: 10.5px; color: #5558e6; font-weight: 500; margin: 2px 0 5px; }
+  .exp-list { list-style: none; font-size: 10.5px; color: #555; line-height: 1.6; }
+  .exp-list li { display: flex; gap: 6px; margin-bottom: 2px; }
+  .exp-list li::before { content: "▸"; color: #5558e6; font-weight: 700; flex-shrink: 0; }
+
+  /* Projects */
+  .proj-item { margin-bottom: 10px; }
+  .proj-item:last-child { margin-bottom: 0; }
+  .proj-title { font-size: 12px; font-weight: 700; color: #222; }
+  .proj-desc { font-size: 10.5px; color: #555; line-height: 1.55; margin-top: 2px; }
+  .proj-tech { font-size: 9.5px; color: #999; font-family: 'SF Mono', 'Fira Code', monospace; margin-top: 2px; }
+
+  /* Education */
+  .edu-top { display: flex; justify-content: space-between; align-items: baseline; }
+  .edu-degree { font-size: 12px; font-weight: 700; color: #222; }
+  .edu-date { font-size: 9.5px; color: #999; font-family: 'SF Mono', 'Fira Code', monospace; }
+  .edu-school { font-size: 10.5px; color: #666; }
+  .edu-gpa { font-size: 10px; color: #888; margin-top: 2px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>Marwan Mohamed</h1>
+    <div class="role">Full Stack Developer</div>
+    <div class="contact">
+      <span>
+        <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        m.m.melbahrawy55@gmail.com
+      </span>
+      <span>
+        <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        Cairo, Egypt
+      </span>
+      <span>
+        <svg viewBox="0 0 24 24" style="fill:currentColor;stroke:none"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        github.com/mmmelbahrawy55-beep
+      </span>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- Summary -->
+    <div class="section">
+      <div class="section-title">Professional Summary</div>
+      <p class="summary">Full Stack Developer with 4+ years of experience building robust, scalable web applications. Skilled in React, Next.js, Node.js, and cloud infrastructure. Passionate about clean architecture, performance optimization, and delivering production-ready solutions that drive business growth.</p>
+    </div>
+
+    <!-- Skills -->
+    <div class="section">
+      <div class="section-title">Technical Skills</div>
+      <div class="skills-grid">
+        <div><span class="label">Frontend:</span> React, Next.js, TypeScript, Vue.js, Tailwind CSS</div>
+        <div><span class="label">Backend:</span> Node.js, Express, Python, Django, GraphQL, REST</div>
+        <div><span class="label">Database:</span> PostgreSQL, MongoDB, Redis</div>
+        <div><span class="label">DevOps:</span> Docker, AWS, CI/CD, Git, Linux</div>
+      </div>
+    </div>
+
+    <!-- Experience -->
+    <div class="section">
+      <div class="section-title">Experience</div>
+
+      <div class="exp-item">
+        <div class="exp-top">
+          <span class="exp-role">Senior Full Stack Developer</span>
+          <span class="exp-date">2023 — Present</span>
+        </div>
+        <div class="exp-company">TechCorp Inc.</div>
+        <ul class="exp-list">
+          <li>Architected microservices platform serving 100K+ MAU with 99.9% uptime</li>
+          <li>Led 5 engineers, reducing deployment cycles from 2 weeks to 2 days via CI/CD</li>
+          <li>Built a reusable component library adopted across 3 product teams</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-top">
+          <span class="exp-role">Full Stack Developer</span>
+          <span class="exp-date">2021 — 2023</span>
+        </div>
+        <div class="exp-company">StartupHub</div>
+        <ul class="exp-list">
+          <li>Developed 5+ production apps from concept to deployment, owning the full SDLC</li>
+          <li>Implemented real-time features using WebSockets, serving 10K+ concurrent users</li>
+          <li>Reduced API response times by 40% via query optimization &amp; Redis caching</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-top">
+          <span class="exp-role">Junior Web Developer</span>
+          <span class="exp-date">2020 — 2021</span>
+        </div>
+        <div class="exp-company">Digital Agency Co.</div>
+        <ul class="exp-list">
+          <li>Delivered 15+ client projects across diverse industries on time and within budget</li>
+          <li>Improved Lighthouse performance scores from 55 to 92 via code splitting &amp; lazy loading</li>
+          <li>Introduced modern tooling (Webpack, ESLint, Prettier) to the development workflow</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="section">
+      <div class="section-title">Featured Projects</div>
+
+      <div class="proj-item">
+        <div class="proj-title">ELITE — Premium Fashion E-Commerce</div>
+        <div class="proj-desc">End-to-end luxury fashion e-commerce platform featuring dynamic product collections, responsive lookbook, shopping cart system, and bold brand identity.</div>
+        <div class="proj-tech">React · Next.js · Tailwind CSS · Vercel</div>
+      </div>
+
+      <div class="proj-item">
+        <div class="proj-title">ELBA 7RAWY — Advertising Platform</div>
+        <div class="proj-desc">Full-stack digital presence for a leading advertising agency with dynamic materials catalog (14+ products), real-time pricing, and client contact system.</div>
+        <div class="proj-tech">HTML · CSS · JavaScript · Firebase</div>
+      </div>
+
+      <div class="proj-item">
+        <div class="proj-title">Company Management System</div>
+        <div class="proj-desc">Comprehensive ERP system covering employee management, client relations, inventory control, sales tracking, accounting, and project oversight with real-time data sync.</div>
+        <div class="proj-tech">React · Node.js · PostgreSQL · REST API</div>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="section">
+      <div class="section-title">Education</div>
+      <div class="edu-top">
+        <div>
+          <div class="edu-degree">B.Sc. Computer Science</div>
+          <div class="edu-school">Cairo University</div>
+        </div>
+        <span class="edu-date">2016 — 2020</span>
+      </div>
+      <div class="edu-gpa">GPA: 3.7 / 4.0 — Graduated with Honors</div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
