@@ -4,158 +4,332 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Marwan Mohamed — CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
+  @page { size: A4; margin: 0; }
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-  @page { size: A4; margin: 0; }
-
   body {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    background: #fff;
-    color: #333;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background: #f3f4f6;
+    color: #1e293b;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
 
   .page {
     width: 210mm;
-    min-height: 297mm;
+    height: 297mm;
     margin: 0 auto;
     background: #fff;
     overflow: hidden;
+    display: flex;
   }
 
   @media screen {
-    .page { box-shadow: 0 4px 40px rgba(0,0,0,0.08); margin: 20px auto; }
-    body { background: #f0f0f5; }
+    .page { box-shadow: 0 8px 60px rgba(0,0,0,0.1); margin: 24px auto; }
   }
 
-  .header {
-    background: linear-gradient(135deg, #5558e6, #7c3aed);
-    padding: 28px 36px 24px;
-    color: #fff;
-  }
-  .header h1 { font-size: 26px; font-weight: 800; letter-spacing: -0.5px; }
-  .header .role { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.8); margin-top: 2px; }
-  .header .contact {
+  /* ── Sidebar ── */
+  .sidebar {
+    width: 230px;
+    flex-shrink: 0;
+    background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+    color: #e2e8f0;
+    padding: 32px 22px;
     display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-top: 12px;
-    font-size: 10.5px;
-    color: rgba(255,255,255,0.75);
+    flex-direction: column;
+    gap: 24px;
   }
-  .header .contact span { display: flex; align-items: center; gap: 5px; }
-  .header .contact svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 2; }
 
-  .body { padding: 20px 36px 28px; }
+  .avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    margin: 0 auto;
+    box-shadow: 0 4px 20px rgba(99,102,241,0.3);
+  }
 
-  .section { margin-bottom: 18px; }
-  .section-title {
-    font-size: 10px;
+  .sidebar-section { }
+  .sidebar-label {
+    font-size: 8.5px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: #5558e6;
-    border-bottom: 2px solid rgba(85,88,230,0.15);
-    padding-bottom: 5px;
+    letter-spacing: 0.18em;
+    color: #6366f1;
     margin-bottom: 10px;
   }
 
-  .summary { font-size: 11px; line-height: 1.65; color: #444; }
-
-  .skills-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5px 24px;
-    font-size: 10.5px;
-    color: #444;
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    margin-bottom: 9px;
+    font-size: 9.5px;
+    color: #cbd5e1;
+    line-height: 1.4;
   }
-  .skills-grid .label { font-weight: 600; color: #222; }
+  .contact-item svg { width: 13px; height: 13px; flex-shrink: 0; margin-top: 1px; stroke: #6366f1; fill: none; stroke-width: 2; }
+  .contact-item a { color: #cbd5e1; text-decoration: none; }
+
+  .skill-tag {
+    display: inline-block;
+    font-size: 8.5px;
+    font-weight: 500;
+    padding: 3.5px 9px;
+    border-radius: 20px;
+    background: rgba(99,102,241,0.12);
+    color: #a5b4fc;
+    margin: 0 4px 5px 0;
+    line-height: 1.4;
+  }
+
+  .lang-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 9.5px;
+    color: #cbd5e1;
+    margin-bottom: 5px;
+  }
+  .lang-level { color: #64748b; font-size: 8.5px; }
+
+  /* ── Main ── */
+  .main {
+    flex: 1;
+    padding: 30px 28px 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .name { font-size: 26px; font-weight: 800; color: #0f172a; letter-spacing: -0.5px; line-height: 1.1; }
+  .title { font-size: 12px; font-weight: 400; color: #6366f1; letter-spacing: 0.05em; margin-top: 3px; }
+
+  .section { }
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .section-head::before {
+    content: "";
+    width: 3px;
+    height: 14px;
+    background: linear-gradient(180deg, #6366f1, #8b5cf6);
+    border-radius: 2px;
+  }
+  .section-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #0f172a;
+  }
+
+  .summary { font-size: 10px; line-height: 1.7; color: #475569; }
+
+  .exp-item { margin-bottom: 12px; position: relative; padding-left: 14px; }
+  .exp-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99,102,241,0.15);
+  }
+  .exp-top { display: flex; justify-content: space-between; align-items: baseline; }
+  .exp-role { font-size: 11px; font-weight: 700; color: #0f172a; }
+  .exp-date {
+    font-size: 8.5px;
+    color: #94a3b8;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    background: #f1f5f9;
+    padding: 2px 7px;
+    border-radius: 4px;
+  }
+  .exp-company { font-size: 9.5px; color: #6366f1; font-weight: 600; margin: 1px 0 4px; }
+  .exp-list { list-style: none; font-size: 9.5px; color: #475569; line-height: 1.6; }
+  .exp-list li { display: flex; gap: 6px; margin-bottom: 1px; }
+  .exp-list li::before { content: "—"; color: #cbd5e1; flex-shrink: 0; }
 
   .proj-item { margin-bottom: 10px; }
   .proj-item:last-child { margin-bottom: 0; }
-  .proj-title { font-size: 12px; font-weight: 700; color: #222; }
-  .proj-desc { font-size: 10.5px; color: #555; line-height: 1.55; margin-top: 2px; }
-  .proj-tech { font-size: 9.5px; color: #999; font-family: 'SF Mono', 'Fira Code', monospace; margin-top: 2px; }
+  .proj-row { display: flex; justify-content: space-between; align-items: baseline; }
+  .proj-title { font-size: 10.5px; font-weight: 700; color: #0f172a; }
+  .proj-link { font-size: 8px; color: #6366f1; font-family: 'JetBrains Mono', monospace; text-decoration: none; }
+  .proj-desc { font-size: 9.5px; color: #475569; line-height: 1.55; margin-top: 2px; }
+  .proj-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 4px;
+  }
+  .proj-tech span {
+    font-size: 7.5px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    color: #6366f1;
+    background: rgba(99,102,241,0.07);
+    padding: 2px 7px;
+    border-radius: 3px;
+  }
 
-  .edu-top { display: flex; justify-content: space-between; align-items: baseline; }
-  .edu-degree { font-size: 12px; font-weight: 700; color: #222; }
-  .edu-date { font-size: 9.5px; color: #999; font-family: 'SF Mono', 'Fira Code', monospace; }
-  .edu-school { font-size: 10.5px; color: #666; }
-  .edu-gpa { font-size: 10px; color: #888; margin-top: 2px; }
+  .edu-row { display: flex; justify-content: space-between; align-items: baseline; }
+  .edu-degree { font-size: 10.5px; font-weight: 700; color: #0f172a; }
+  .edu-date { font-size: 8.5px; color: #94a3b8; font-family: 'JetBrains Mono', monospace; font-weight: 500; }
+  .edu-school { font-size: 9.5px; color: #64748b; margin-top: 1px; }
+  .edu-gpa { font-size: 9px; color: #94a3b8; margin-top: 2px; font-style: italic; }
 
-  .cert-list { font-size: 10.5px; color: #444; line-height: 1.8; }
-  .cert-list li { list-style: none; display: flex; gap: 8px; }
-  .cert-list li::before { content: "✦"; color: #5558e6; font-size: 8px; margin-top: 3px; flex-shrink: 0; }
+  @media print {
+    body { background: #fff; }
+    .page { box-shadow: none; margin: 0; }
+  }
 </style>
 </head>
 <body>
 <div class="page">
 
-  <div class="header">
-    <h1>Marwan Mohamed</h1>
-    <div class="role">Full Stack Developer</div>
-    <div class="contact">
-      <span>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="avatar">MM</div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Contact</div>
+      <div class="contact-item">
         <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-        m.m.melbahrawy55@gmail.com
-      </span>
-      <span>
+        <a href="mailto:m.m.melbahrawy55@gmail.com">m.m.melbahrawy55@gmail.com</a>
+      </div>
+      <div class="contact-item">
         <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
         Cairo, Egypt
-      </span>
-      <span>
-        <svg viewBox="0 0 24 24" style="fill:currentColor;stroke:none"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-        github.com/mmmelbahrawy55-beep
-      </span>
+      </div>
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24" style="stroke:none;fill:#6366f1"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        <a href="https://github.com/mmmelbahrawy55-beep" target="_blank">github.com/mmmelbahrawy55-beep</a>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Frontend</div>
+      <div>
+        <span class="skill-tag">React</span>
+        <span class="skill-tag">Next.js</span>
+        <span class="skill-tag">TypeScript</span>
+        <span class="skill-tag">Vue.js</span>
+        <span class="skill-tag">Tailwind CSS</span>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Backend</div>
+      <div>
+        <span class="skill-tag">Node.js</span>
+        <span class="skill-tag">Express</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Django</span>
+        <span class="skill-tag">GraphQL</span>
+        <span class="skill-tag">REST</span>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Database</div>
+      <div>
+        <span class="skill-tag">PostgreSQL</span>
+        <span class="skill-tag">MongoDB</span>
+        <span class="skill-tag">Redis</span>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">DevOps & Tools</div>
+      <div>
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">AWS</span>
+        <span class="skill-tag">CI/CD</span>
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">Linux</span>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Languages</div>
+      <div class="lang-item">
+        <span>Arabic</span>
+        <span class="lang-level">Native</span>
+      </div>
+      <div class="lang-item">
+        <span>English</span>
+        <span class="lang-level">Professional</span>
+      </div>
     </div>
   </div>
 
-  <div class="body">
+  <!-- Main Content -->
+  <div class="main">
+    <div>
+      <div class="name">Marwan Mohamed</div>
+      <div class="title">Full Stack Developer</div>
+    </div>
 
     <div class="section">
-      <div class="section-title">Professional Summary</div>
+      <div class="section-head"><span class="section-title">Profile</span></div>
       <p class="summary">Motivated Full Stack Developer and recent Computer Science graduate with strong proficiency in React, Next.js, Node.js, and modern web technologies. Built multiple production-ready projects including e-commerce platforms and enterprise management systems. Seeking an internship/training opportunity to apply technical skills in a professional environment and contribute to real-world products.</p>
     </div>
 
     <div class="section">
-      <div class="section-title">Technical Skills</div>
-      <div class="skills-grid">
-        <div><span class="label">Frontend:</span> React, Next.js, TypeScript, Vue.js, Tailwind CSS</div>
-        <div><span class="label">Backend:</span> Node.js, Express, Python, Django, GraphQL, REST</div>
-        <div><span class="label">Database:</span> PostgreSQL, MongoDB, Redis</div>
-        <div><span class="label">DevOps:</span> Docker, AWS, CI/CD, Git, Linux</div>
+      <div class="section-head"><span class="section-title">Projects</span></div>
+
+      <div class="proj-item">
+        <div class="proj-row">
+          <span class="proj-title">ELITE — Premium Fashion E-Commerce</span>
+          <a href="https://shop-plum-theta-83.vercel.app/" class="proj-link" target="_blank">Live →</a>
+        </div>
+        <p class="proj-desc">End-to-end luxury fashion e-commerce platform featuring dynamic product collections, responsive lookbook, shopping cart system, and bold brand identity.</p>
+        <div class="proj-tech">
+          <span>React</span><span>Next.js</span><span>Tailwind CSS</span><span>Vercel</span>
+        </div>
+      </div>
+
+      <div class="proj-item">
+        <div class="proj-row">
+          <span class="proj-title">ELBA 7RAWY — Advertising Platform</span>
+          <a href="https://elba7rawy-91214.web.app/" class="proj-link" target="_blank">Live →</a>
+        </div>
+        <p class="proj-desc">Full-stack digital presence for a leading advertising agency with dynamic materials catalog (14+ products), real-time pricing, and client contact system.</p>
+        <div class="proj-tech">
+          <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Firebase</span>
+        </div>
+      </div>
+
+      <div class="proj-item">
+        <div class="proj-row">
+          <span class="proj-title">Company Management System</span>
+          <a href="https://company-management-system-six.vercel.app/" class="proj-link" target="_blank">Live →</a>
+        </div>
+        <p class="proj-desc">Comprehensive ERP system covering employee management, client relations, inventory control, sales tracking, accounting, and project oversight with real-time data sync.</p>
+        <div class="proj-tech">
+          <span>React</span><span>Node.js</span><span>PostgreSQL</span><span>REST API</span>
+        </div>
       </div>
     </div>
 
     <div class="section">
-      <div class="section-title">Projects</div>
-
-      <div class="proj-item">
-        <div class="proj-title">ELITE — Premium Fashion E-Commerce</div>
-        <div class="proj-desc">End-to-end luxury fashion e-commerce platform featuring dynamic product collections, responsive lookbook, shopping cart system, and bold brand identity.</div>
-        <div class="proj-tech">React · Next.js · Tailwind CSS · Vercel</div>
-      </div>
-
-      <div class="proj-item">
-        <div class="proj-title">ELBA 7RAWY — Advertising Platform</div>
-        <div class="proj-desc">Full-stack digital presence for a leading advertising agency with dynamic materials catalog (14+ products), real-time pricing, and client contact system.</div>
-        <div class="proj-tech">HTML · CSS · JavaScript · Firebase</div>
-      </div>
-
-      <div class="proj-item">
-        <div class="proj-title">Company Management System</div>
-        <div class="proj-desc">Comprehensive ERP system covering employee management, client relations, inventory control, sales tracking, accounting, and project oversight with real-time data sync.</div>
-        <div class="proj-tech">React · Node.js · PostgreSQL · REST API</div>
-      </div>
-    </div>
-
-    <div class="section">
-      <div class="section-title">Education</div>
-      <div class="edu-top">
+      <div class="section-head"><span class="section-title">Education</span></div>
+      <div class="edu-row">
         <div>
           <div class="edu-degree">B.Sc. Computer Science</div>
           <div class="edu-school">Cairo University</div>
@@ -164,8 +338,8 @@
       </div>
       <div class="edu-gpa">GPA: 3.7 / 4.0 — Graduated with Honors</div>
     </div>
-
   </div>
+
 </div>
 </body>
 </html>
