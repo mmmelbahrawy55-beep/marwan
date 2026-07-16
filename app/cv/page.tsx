@@ -1,23 +1,9 @@
 "use client";
 
-import { useRef, useCallback } from "react";
-
 export default function CVPage() {
-  const cvRef = useRef<HTMLDivElement>(null);
-
-  const downloadPDF = useCallback(async () => {
-    if (!cvRef.current) return;
-    const html2canvas = (await import("html2canvas")).default;
-    const jsPDF = (await import("jspdf")).default;
-    const el = cvRef.current;
-    const canvas = await html2canvas(el, { scale: 2, useCORS: true, backgroundColor: "#ffffff" });
-    const imgData = canvas.toDataURL("image/png");
-    const pdf = new jsPDF("p", "mm", "a4");
-    const pdfW = pdf.internal.pageSize.getWidth();
-    const pdfH = (canvas.height * pdfW) / canvas.width;
-    pdf.addImage(imgData, "PNG", 0, 0, pdfW, pdfH);
-    pdf.save("Marwan_Mohamed_CV.pdf");
-  }, []);
+  const downloadPDF = () => {
+    window.print();
+  };
 
   return (
     <div className="min-h-screen bg-[#f0f0f5] py-10 px-4">
@@ -35,7 +21,7 @@ export default function CVPage() {
       </div>
 
       {/* CV Content */}
-      <div ref={cvRef} className="max-w-[800px] mx-auto bg-white shadow-[0_4px_40px_rgba(0,0,0,0.08)] rounded-lg overflow-hidden" style={{ fontFamily: "'Segoe UI', system-ui, sans-serif" }}>
+      <div className="max-w-[800px] mx-auto bg-white shadow-[0_4px_40px_rgba(0,0,0,0.08)] rounded-lg overflow-hidden" style={{ fontFamily: "'Segoe UI', system-ui, sans-serif" }}>
         {/* Header */}
         <div className="bg-gradient-to-r from-[#5558e6] to-[#7c3aed] px-10 py-8 text-white">
           <h1 className="text-3xl font-bold tracking-tight">Marwan Mohamed</h1>
