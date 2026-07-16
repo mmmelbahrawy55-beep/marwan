@@ -14,7 +14,7 @@ const titles = [
   "Production-Ready Code",
 ];
 
-function useTypewriter(words: string[], speed = 60) {
+function useTypewriter(words: string[], speed = 55) {
   const [text, setText] = useState("");
   const [wordIdx, setWordIdx] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -47,16 +47,8 @@ function useTypewriter(words: string[], speed = 60) {
 const techMarquee = [
   "React", "Next.js", "TypeScript", "Node.js", "Python", "Docker",
   "PostgreSQL", "AWS", "GraphQL", "Redis", "Tailwind", "Git",
+  "Microservices", "CI/CD", "REST APIs",
 ];
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.1, duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const },
-  }),
-};
 
 export default function Hero() {
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
@@ -73,180 +65,191 @@ export default function Hero() {
     <section
       id="home"
       onMouseMove={handleMouse}
-      className="relative min-h-screen flex flex-col justify-center overflow-hidden"
+      className="relative min-h-screen flex flex-col overflow-hidden"
     >
-      {/* Background effects */}
+      {/* Background layers */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] animate-[glow-pulse_4s_ease-in-out_infinite]" />
-        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-pink/5 rounded-full blur-[100px] animate-[glow-pulse_4s_ease-in-out_infinite_2s]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-cyan/3 rounded-full blur-[80px] animate-[glow-pulse_4s_ease-in-out_infinite_4s]" />
-        {/* Grid pattern */}
+        <div className="absolute top-[15%] left-[10%] w-[600px] h-[600px] bg-[#6366f1]/[0.04] rounded-full blur-[140px]" />
+        <div className="absolute bottom-[10%] right-[10%] w-[500px] h-[500px] bg-[#ec4899]/[0.03] rounded-full blur-[120px]" />
+        <div className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#06b6d4]/[0.02] rounded-full blur-[100px]" />
+        {/* Grid */}
         <div
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0 opacity-[0.025]"
           style={{
-            backgroundImage: `linear-gradient(rgba(99,102,241,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.3) 1px, transparent 1px)`,
-            backgroundSize: "60px 60px",
-            maskImage: "radial-gradient(ellipse at center, black 20%, transparent 70%)",
+            backgroundImage: `linear-gradient(rgba(99,102,241,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.4) 1px, transparent 1px)`,
+            backgroundSize: "50px 50px",
+            maskImage: "radial-gradient(ellipse 60% 50% at 50% 50%, black, transparent)",
           }}
         />
         <Scene3D mouse={mouse} />
       </div>
 
-      <div className="relative z-10 container pt-32 pb-8">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          className="max-w-4xl"
-        >
-          {/* Status badge */}
-          <motion.div
-            custom={0}
-            variants={fadeUp}
-            className="inline-flex items-center gap-2.5 px-5 py-2 mb-8 text-xs font-medium text-accent glass rounded-full"
-          >
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="absolute inline-flex h-full w-full rounded-full bg-success opacity-75 animate-ping" />
-              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-success" />
-            </span>
-            Available for new opportunities
-          </motion.div>
-
-          {/* Greeting */}
-          <motion.p
-            custom={1}
-            variants={fadeUp}
-            className="text-sm md:text-base font-mono text-text mb-6 tracking-widest uppercase"
-          >
-            Hi, my name is
-          </motion.p>
-
-          {/* Name */}
-          <motion.h1
-            custom={2}
-            variants={fadeUp}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-extrabold leading-[1.02] tracking-[-0.03em]"
-          >
-            <span className="text-text-white">Marwan</span>
-            <br />
-            <span className="gradient-text">Mohamed</span>
-          </motion.h1>
-
-          {/* Typed title */}
-          <motion.div
-            custom={3}
-            variants={fadeUp}
-            className="mt-6 text-xl sm:text-2xl md:text-3xl font-light text-text-light flex items-center flex-wrap"
-          >
-            <span className="mr-2">I build</span>
-            <span className="text-text-white font-semibold min-w-[12ch]">
-              {typedText}
-              <motion.span
-                animate={{ opacity: [1, 0] }}
-                transition={{ duration: 0.7, repeat: Infinity, repeatType: "reverse" }}
-                className="inline-block w-[3px] h-[0.9em] bg-accent ml-0.5 align-middle rounded-full"
-              />
-            </span>
-          </motion.div>
-
-          {/* Description */}
-          <motion.p
-            custom={4}
-            variants={fadeUp}
-            className="mt-6 text-base md:text-lg text-text max-w-2xl leading-relaxed"
-          >
-            Full Stack Developer with 4+ years of experience crafting robust,
-            scalable web applications. I transform complex problems into
-            elegant, production-ready solutions that users love.
-          </motion.p>
-
-          {/* Buttons */}
-          <motion.div
-            custom={5}
-            variants={fadeUp}
-            className="mt-10 flex flex-wrap gap-4"
-          >
-            <a
-              href="#projects"
-              className="group relative inline-flex items-center gap-2.5 px-8 py-3.5 text-sm font-semibold text-white bg-accent rounded-full overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(99,102,241,0.4)]"
-            >
-              <span className="absolute inset-0 bg-gradient-to-r from-accent-dark to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <span className="relative">View My Work</span>
-              <svg className="relative w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2.5 px-8 py-3.5 text-sm font-medium text-text-light glass rounded-full hover:text-text-white hover:border-accent/20 transition-all duration-300"
-            >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-              </svg>
-              Get In Touch
-            </a>
-          </motion.div>
-
-          {/* Socials */}
-          <motion.div
-            custom={6}
-            variants={fadeUp}
-            className="mt-12 flex items-center gap-4"
-          >
-            {[
-              { icon: "github", href: "https://github.com/marwan", label: "GitHub" },
-              { icon: "linkedin", href: "https://linkedin.com/in/marwan", label: "LinkedIn" },
-              { icon: "x-twitter", href: "https://twitter.com/marwan", label: "Twitter" },
-            ].map((s) => (
-              <a
-                key={s.icon}
-                href={s.href}
-                target="_blank"
-                className="group w-11 h-11 flex items-center justify-center rounded-xl border border-border text-text hover:border-accent/30 hover:text-accent hover:bg-accent-light transition-all duration-300 hover:-translate-y-1"
-                aria-label={s.label}
+      {/* Content */}
+      <div className="relative z-10 flex-1 flex items-center">
+        <div className="container pt-32 pb-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left: Text */}
+            <div>
+              {/* Status badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1, duration: 0.6 }}
+                className="inline-flex items-center gap-2.5 px-4 py-1.5 mb-8 text-xs font-medium text-[#6366f1] glass rounded-full"
               >
-                <i className={`fab fa-${s.icon} text-lg`} />
-              </a>
-            ))}
-          </motion.div>
-        </motion.div>
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-[#22c55e] opacity-75 animate-ping" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-[#22c55e]" />
+                </span>
+                Available for opportunities
+              </motion.div>
+
+              {/* Greeting */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+                className="text-sm font-mono text-[#8888aa] mb-4 tracking-[0.2em] uppercase"
+              >
+                Hi, my name is
+              </motion.p>
+
+              {/* Name */}
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.6 }}
+                className="text-5xl sm:text-6xl md:text-7xl lg:text-[5rem] font-extrabold leading-[1.02] tracking-[-0.03em]"
+              >
+                <span className="text-[#eeeeff]">Marwan</span>
+                <br />
+                <span className="gradient-text">Mohamed</span>
+              </motion.h1>
+
+              {/* Typed title */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+                className="mt-5 text-lg sm:text-xl md:text-2xl font-light text-[#bbbbdd] flex items-center flex-wrap min-h-[2em]"
+              >
+                <span className="mr-2">I build</span>
+                <span className="text-[#eeeeff] font-semibold min-w-[12ch]">
+                  {typedText}
+                  <motion.span
+                    animate={{ opacity: [1, 0] }}
+                    transition={{ duration: 0.6, repeat: Infinity, repeatType: "reverse" }}
+                    className="inline-block w-[2.5px] h-[0.85em] bg-[#6366f1] ml-0.5 align-middle rounded-full"
+                  />
+                </span>
+              </motion.div>
+
+              {/* Description */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.6 }}
+                className="mt-5 text-base md:text-lg text-[#8888aa] max-w-xl leading-relaxed"
+              >
+                Full Stack Developer with 4+ years of experience crafting robust,
+                scalable web applications. I transform complex problems into
+                elegant, production-ready solutions.
+              </motion.p>
+
+              {/* Buttons */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6, duration: 0.6 }}
+                className="mt-8 flex flex-wrap gap-4"
+              >
+                <a
+                  href="#projects"
+                  className="group relative inline-flex items-center gap-2.5 px-7 py-3 text-sm font-semibold text-white bg-[#6366f1] rounded-xl overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(99,102,241,0.35)]"
+                >
+                  <span className="absolute inset-0 bg-gradient-to-r from-[#4f46e5] to-[#7c3aed] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <span className="relative">View My Work</span>
+                  <svg className="relative w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+                <a
+                  href="#contact"
+                  className="inline-flex items-center gap-2.5 px-7 py-3 text-sm font-medium text-[#bbbbdd] glass rounded-xl hover:text-[#eeeeff] hover:border-[#6366f1]/20 transition-all duration-300"
+                >
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                  </svg>
+                  Get In Touch
+                </a>
+              </motion.div>
+
+              {/* Socials */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.8 }}
+                className="mt-10 flex items-center gap-3"
+              >
+                {[
+                  { icon: "github", href: "https://github.com/marwan" },
+                  { icon: "linkedin", href: "https://linkedin.com/in/marwan" },
+                  { icon: "x-twitter", href: "https://twitter.com/marwan" },
+                ].map((s) => (
+                  <a
+                    key={s.icon}
+                    href={s.href}
+                    target="_blank"
+                    className="group w-10 h-10 flex items-center justify-center rounded-xl border border-[#1a1a35] text-[#8888aa] hover:border-[#6366f1]/30 hover:text-[#6366f1] hover:bg-[#6366f1]/[0.06] transition-all duration-300 hover:-translate-y-0.5"
+                  >
+                    <i className={`fab fa-${s.icon} text-base`} />
+                  </a>
+                ))}
+              </motion.div>
+            </div>
+
+            {/* Right: 3D is rendered in background */}
+            <div className="hidden lg:block" />
+          </div>
+        </div>
       </div>
 
       {/* Tech marquee */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.2 }}
-        className="relative z-10 mt-auto"
+        transition={{ delay: 1 }}
+        className="relative z-10"
       >
-        <div className="border-y border-border/50 py-4 overflow-hidden">
+        <div className="border-y border-[#1a1a35]/50 py-3.5 overflow-hidden">
           <div className="marquee-track">
             {[...techMarquee, ...techMarquee].map((t, i) => (
-              <span key={i} className="flex items-center gap-3 text-sm font-mono text-text/40 whitespace-nowrap uppercase tracking-widest">
+              <span key={i} className="flex items-center gap-3 text-xs font-mono text-[#8888aa]/30 whitespace-nowrap uppercase tracking-[0.2em]">
                 {t}
-                <span className="w-1.5 h-1.5 rounded-full bg-accent/30" />
+                <span className="w-1 h-1 rounded-full bg-[#6366f1]/20" />
               </span>
             ))}
           </div>
         </div>
       </motion.div>
 
-      {/* Scroll indicator */}
+      {/* Scroll */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
+        className="absolute bottom-5 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 z-10"
       >
-        <span className="text-[10px] font-mono text-text/40 tracking-[0.3em]">SCROLL</span>
+        <span className="text-[9px] font-mono text-[#8888aa]/30 tracking-[0.3em]">SCROLL</span>
         <motion.div
-          animate={{ y: [0, 6, 0] }}
+          animate={{ y: [0, 5, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-5 h-9 border border-border/50 rounded-full flex justify-center pt-2"
+          className="w-4 h-7 border border-[#1a1a35]/60 rounded-full flex justify-center pt-1.5"
         >
           <motion.div
-            animate={{ opacity: [0.3, 1, 0.3] }}
+            animate={{ opacity: [0.2, 0.8, 0.2] }}
             transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-1 h-2 bg-accent rounded-full"
+            className="w-[3px] h-1.5 bg-[#6366f1] rounded-full"
           />
         </motion.div>
       </motion.div>

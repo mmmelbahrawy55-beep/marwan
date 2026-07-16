@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const navLinks = [
   { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
-  { href: "#tech", label: "Tech" },
+  { href: "#tech", label: "Skills" },
   { href: "#projects", label: "Projects" },
   { href: "#contact", label: "Contact" },
 ];
@@ -19,7 +19,6 @@ export default function Navbar() {
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 50);
-
       const sections = document.querySelectorAll("section[id]");
       let current = "home";
       sections.forEach((section) => {
@@ -36,40 +35,39 @@ export default function Navbar() {
     <motion.nav
       initial={{ y: -80 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const }}
+      transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-bg/80 backdrop-blur-xl border-b border-border shadow-lg shadow-black/5"
+          ? "glass border-b border-[#161630]/50 shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
           : "bg-transparent"
       }`}
     >
-      <div className="container flex items-center justify-between h-16 md:h-20">
-        <a
-          href="#home"
-          className="text-xl font-bold text-text-white tracking-tight"
-        >
-          <span className="text-accent">M</span>arwan
+      <div className="container flex items-center justify-between h-16 md:h-[72px]">
+        <a href="#home" className="flex items-center gap-1 group">
+          <span className="text-xl font-extrabold gradient-text">&lt;M</span>
+          <span className="text-xl font-extrabold text-[#eeeeff]">MW</span>
+          <span className="text-xl font-extrabold gradient-text">/&gt;</span>
         </a>
 
-        <ul className="hidden md:flex items-center gap-8">
+        <ul className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className={`relative text-sm font-medium transition-colors duration-200 ${
+                className={`relative px-4 py-2 text-[13px] font-medium rounded-lg transition-all duration-200 ${
                   active === link.href.slice(1)
-                    ? "text-text-white"
-                    : "text-text hover:text-text-light"
+                    ? "text-[#eeeeff]"
+                    : "text-[#8888aa] hover:text-[#aaaaCC]"
                 }`}
               >
                 {active === link.href.slice(1) && (
                   <motion.div
                     layoutId="nav-indicator"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent rounded-full"
+                    className="absolute inset-0 bg-[#6366f1]/[0.08] border border-[#6366f1]/10 rounded-lg"
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
                   />
                 )}
-                {link.label}
+                <span className="relative z-10">{link.label}</span>
               </a>
             </li>
           ))}
@@ -77,27 +75,27 @@ export default function Navbar() {
 
         <a
           href="#contact"
-          className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-accent rounded-full hover:bg-accent-dark transition-all duration-200 hover:shadow-lg hover:shadow-accent/20"
+          className="hidden md:inline-flex items-center gap-2 px-5 py-2 text-[13px] font-semibold text-white bg-[#6366f1] rounded-xl hover:bg-[#4f46e5] transition-all duration-200 hover:shadow-[0_0_20px_rgba(99,102,241,0.25)]"
         >
-          Hire Me
+          Let&apos;s Talk
         </a>
 
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden relative w-6 h-6 flex flex-col items-center justify-center gap-1.5"
+          className="md:hidden relative w-8 h-8 flex flex-col items-center justify-center gap-1.5"
           aria-label="Toggle menu"
         >
           <motion.span
             animate={mobileOpen ? { rotate: 45, y: 5 } : { rotate: 0, y: 0 }}
-            className="block w-5 h-0.5 bg-text-white rounded-full"
+            className="block w-5 h-[1.5px] bg-[#eeeeff] rounded-full"
           />
           <motion.span
             animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
-            className="block w-5 h-0.5 bg-text-white rounded-full"
+            className="block w-5 h-[1.5px] bg-[#eeeeff] rounded-full"
           />
           <motion.span
             animate={mobileOpen ? { rotate: -45, y: -5 } : { rotate: 0, y: 0 }}
-            className="block w-5 h-0.5 bg-text-white rounded-full"
+            className="block w-5 h-[1.5px] bg-[#eeeeff] rounded-full"
           />
         </button>
       </div>
@@ -108,31 +106,31 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-border bg-bg/95 backdrop-blur-xl overflow-hidden"
+            className="md:hidden glass border-t border-[#161630]/50 overflow-hidden"
           >
-            <ul className="container py-6 flex flex-col gap-4">
+            <ul className="container py-5 flex flex-col gap-1">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className={`block py-2 text-lg font-medium transition-colors ${
+                    className={`block py-2.5 px-4 text-sm font-medium rounded-lg transition-colors ${
                       active === link.href.slice(1)
-                        ? "text-accent"
-                        : "text-text hover:text-text-white"
+                        ? "text-[#6366f1] bg-[#6366f1]/[0.06]"
+                        : "text-[#8888aa] hover:text-[#eeeeff]"
                     }`}
                   >
                     {link.label}
                   </a>
                 </li>
               ))}
-              <li className="pt-2">
+              <li className="pt-2 px-4">
                 <a
                   href="#contact"
                   onClick={() => setMobileOpen(false)}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-accent rounded-full"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-[#6366f1] rounded-xl w-full justify-center"
                 >
-                  Hire Me
+                  Let&apos;s Talk
                 </a>
               </li>
             </ul>
