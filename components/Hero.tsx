@@ -6,6 +6,18 @@ import dynamic from "next/dynamic";
 
 const Scene3D = dynamic(() => import("@/components/Scene3D"), { ssr: false });
 
+function useMediaQuery(query: string) {
+  const [matches, setMatches] = useState(false);
+  useEffect(() => {
+    const mql = window.matchMedia(query);
+    setMatches(mql.matches);
+    const handler = (e: MediaQueryListEvent) => setMatches(e.matches);
+    mql.addEventListener("change", handler);
+    return () => mql.removeEventListener("change", handler);
+  }, [query]);
+  return matches;
+}
+
 const titles = [
   "Full Stack Applications",
   "Scalable APIs",
@@ -52,6 +64,7 @@ const techMarquee = [
 
 export default function Hero() {
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
 
   const handleMouse = useCallback((e: React.MouseEvent) => {
     const x = (e.clientX / window.innerWidth) * 2 - 1;
@@ -79,12 +92,12 @@ export default function Hero() {
             maskImage: "radial-gradient(ellipse 60% 50% at 50% 50%, black, transparent)",
           }}
         />
-        <Scene3D mouse={mouse} />
+        {isDesktop && <Scene3D mouse={mouse} />}
       </div>
 
       <div className="relative z-10 flex-1 flex items-center">
-        <div className="container pt-32 pb-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="container pt-28 sm:pt-32 pb-8">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -112,7 +125,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
-                className="text-5xl sm:text-6xl md:text-7xl lg:text-[5rem] font-extrabold leading-[1.02] tracking-[-0.03em]"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-[5rem] font-extrabold leading-[1.02] tracking-[-0.03em]"
               >
                 <span className="text-[#eeeeff]">Marwan</span>
                 <br />
@@ -126,7 +139,7 @@ export default function Hero() {
                 className="mt-5 text-lg sm:text-xl md:text-2xl font-light text-[#bbbbdd] flex items-center flex-wrap min-h-[2em]"
               >
                 <span className="mr-2">I build</span>
-                <span className="text-[#eeeeff] font-semibold min-w-[12ch]">
+                <span className="text-[#eeeeff] font-semibold min-w-[10ch] sm:min-w-[12ch] overflow-hidden">
                   {typedText}
                   <motion.span
                     animate={{ opacity: [1, 0] }}
