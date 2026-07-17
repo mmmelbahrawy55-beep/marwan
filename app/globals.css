@@ -1,53 +1,122 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-bg: #0a0a0b;
-  --color-surface: #111113;
-  --color-surface-hover: #18181b;
-  --color-border: #27272a;
-  --color-border-light: #3f3f46;
-  --color-text: #a1a1aa;
-  --color-text-light: #d4d4d8;
-  --color-text-white: #fafafa;
-  --color-accent: #3b82f6;
-  --color-accent-dark: #2563eb;
-  --color-accent-light: rgba(59, 130, 246, 0.08);
+  --color-bg: #050510;
+  --color-surface: #0a0a1a;
+  --color-surface-hover: #0f0f25;
+  --color-border: #161630;
+  --color-border-light: #1e1e40;
+  --color-text: #7777aa;
+  --color-text-light: #aaaaCC;
+  --color-text-white: #eeeeFF;
+  --color-accent: #6366f1;
+  --color-accent-dark: #4f46e5;
+  --color-accent-light: rgba(99, 102, 241, 0.06);
+  --color-accent-glow: rgba(99, 102, 241, 0.25);
   --color-success: #22c55e;
-  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
-  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+  --color-pink: #ec4899;
+  --color-cyan: #06b6d4;
+  --color-purple: #8b5cf6;
+  --font-sans: "Geist", system-ui, -apple-system, sans-serif;
+  --font-mono: "Geist Mono", "Fira Code", monospace;
 }
 
-html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
 
 body {
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-sans);
   overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
 }
 
-::selection { background: var(--color-accent); color: white; }
+::selection {
+  background: var(--color-accent);
+  color: white;
+}
 
-::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--color-bg); }
-::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--color-accent); }
 
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes border-glow {
+  0%, 100% { border-color: rgba(99, 102, 241, 0.08); }
+  50% { border-color: rgba(99, 102, 241, 0.25); }
+}
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.012;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+.glass {
+  background: rgba(10, 10, 26, 0.65);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(99, 102, 241, 0.05);
+}
+
+.glow-border {
+  animation: border-glow 3s ease-in-out infinite;
+}
+
 .gradient-text {
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% auto;
+  animation: gradient-shift 5s ease infinite;
+}
+
+.gradient-text-alt {
+  background: linear-gradient(135deg, #6366f1, #06b6d4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
+.marquee-track {
+  display: flex;
+  gap: 2.5rem;
+  animation: marquee 30s linear infinite;
+  width: max-content;
+}
+
 @utility container {
-  max-width: 1100px;
+  max-width: 1200px;
   margin-inline: auto;
   padding-inline: 1.5rem;
 }
 
 @media print {
-  body { background: white !important; }
+  body { background: white !important; margin: 0; padding: 0; }
   .noise-overlay, nav, footer { display: none !important; }
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
 }
