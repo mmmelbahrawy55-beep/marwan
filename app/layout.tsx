@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import ScrollRestoration from "@/components/ScrollRestoration";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -34,6 +35,7 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <ScrollRestoration />
         <div className="noise-overlay" />
         {children}
       </body>
