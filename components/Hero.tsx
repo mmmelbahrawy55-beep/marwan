@@ -3,20 +3,9 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
+import Particles from "./Particles";
 
 const Scene3D = dynamic(() => import("@/components/Scene3D"), { ssr: false });
-
-function useMediaQuery(query: string) {
-  const [matches, setMatches] = useState(false);
-  useEffect(() => {
-    const mql = window.matchMedia(query);
-    setMatches(mql.matches);
-    const handler = (e: MediaQueryListEvent) => setMatches(e.matches);
-    mql.addEventListener("change", handler);
-    return () => mql.removeEventListener("change", handler);
-  }, [query]);
-  return matches;
-}
 
 const titles = [
   "Full Stack Applications",
@@ -34,7 +23,6 @@ function useTypewriter(words: string[], speed = 55) {
   useEffect(() => {
     const current = words[wordIdx];
     let timeout: ReturnType<typeof setTimeout>;
-
     if (!isDeleting) {
       if (text.length < current.length) {
         timeout = setTimeout(() => setText(current.slice(0, text.length + 1)), speed);
@@ -49,11 +37,21 @@ function useTypewriter(words: string[], speed = 55) {
         setWordIdx((prev) => (prev + 1) % words.length);
       }
     }
-
     return () => clearTimeout(timeout);
   }, [text, wordIdx, isDeleting, words, speed]);
-
   return text;
+}
+
+function useMediaQuery(query: string) {
+  const [matches, setMatches] = useState(false);
+  useEffect(() => {
+    const mql = window.matchMedia(query);
+    setMatches(mql.matches);
+    const handler = (e: MediaQueryListEvent) => setMatches(e.matches);
+    mql.addEventListener("change", handler);
+    return () => mql.removeEventListener("change", handler);
+  }, [query]);
+  return matches;
 }
 
 const techMarquee = [
@@ -65,6 +63,7 @@ const techMarquee = [
 export default function Hero() {
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
   const isDesktop = useMediaQuery("(min-width: 1024px)");
+  const typedText = useTypewriter(titles);
 
   const handleMouse = useCallback((e: React.MouseEvent) => {
     const x = (e.clientX / window.innerWidth) * 2 - 1;
@@ -72,20 +71,16 @@ export default function Hero() {
     setMouse({ x, y });
   }, []);
 
-  const typedText = useTypewriter(titles);
-
   return (
-    <section
-      id="home"
-      onMouseMove={handleMouse}
-      className="relative min-h-screen flex flex-col overflow-hidden"
-    >
+    <section id="home" onMouseMove={handleMouse} className="relative min-h-screen flex flex-col overflow-hidden">
+      {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
+        <Particles />
         <div className="absolute top-[15%] left-[10%] w-[600px] h-[600px] bg-[#6366f1]/[0.04] rounded-full blur-[140px]" />
         <div className="absolute bottom-[10%] right-[10%] w-[500px] h-[500px] bg-[#ec4899]/[0.03] rounded-full blur-[120px]" />
         <div className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#06b6d4]/[0.02] rounded-full blur-[100px]" />
         <div
-          className="absolute inset-0 opacity-[0.025]"
+          className="absolute inset-0 opacity-[0.02]"
           style={{
             backgroundImage: `linear-gradient(rgba(99,102,241,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.4) 1px, transparent 1px)`,
             backgroundSize: "50px 50px",
@@ -95,16 +90,13 @@ export default function Hero() {
         {isDesktop && <Scene3D mouse={mouse} />}
       </div>
 
+      {/* Content */}
       <div className="relative z-10 flex-1 flex items-center">
         <div className="container pt-28 sm:pt-32 pb-8">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1, duration: 0.6 }}
-                className="inline-flex items-center gap-2.5 px-4 py-1.5 mb-8 text-xs font-medium text-[#6366f1] glass rounded-full"
-              >
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.6 }}
+                className="inline-flex items-center gap-2.5 px-4 py-1.5 mb-6 text-xs font-medium text-[#6366f1] glass rounded-full">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full rounded-full bg-[#22c55e] opacity-75 animate-ping" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-[#22c55e]" />
@@ -112,74 +104,45 @@ export default function Hero() {
                 Available for opportunities
               </motion.div>
 
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
-                className="text-sm font-mono text-[#8888aa] mb-4 tracking-[0.2em] uppercase"
-              >
+              <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.6 }}
+                className="text-sm font-mono text-[#8888aa] mb-4 tracking-[0.2em] uppercase">
                 Hi, my name is
               </motion.p>
 
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-[5rem] font-extrabold leading-[1.02] tracking-[-0.03em]"
-              >
+              <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.6 }}
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-[5rem] font-extrabold leading-[1.02] tracking-[-0.03em]">
                 <span className="text-[#eeeeff]">Marwan</span>
                 <br />
                 <span className="gradient-text">Mohamed</span>
               </motion.h1>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-                className="mt-5 text-lg sm:text-xl md:text-2xl font-light text-[#bbbbdd] flex items-center flex-wrap min-h-[2em]"
-              >
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.6 }}
+                className="mt-5 text-lg sm:text-xl md:text-2xl font-light text-[#bbbbdd] flex items-center flex-wrap min-h-[2em]">
                 <span className="mr-2">I build</span>
                 <span className="text-[#eeeeff] font-semibold min-w-[10ch] sm:min-w-[12ch] overflow-hidden">
                   {typedText}
-                  <motion.span
-                    animate={{ opacity: [1, 0] }}
-                    transition={{ duration: 0.6, repeat: Infinity, repeatType: "reverse" }}
-                    className="inline-block w-[2.5px] h-[0.85em] bg-[#6366f1] ml-0.5 align-middle rounded-full"
-                  />
+                  <motion.span animate={{ opacity: [1, 0] }} transition={{ duration: 0.6, repeat: Infinity, repeatType: "reverse" }}
+                    className="inline-block w-[2.5px] h-[0.85em] bg-[#6366f1] ml-0.5 align-middle rounded-full" />
                 </span>
               </motion.div>
 
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.6 }}
-                className="mt-5 text-base md:text-lg text-[#8888aa] max-w-xl leading-relaxed"
-              >
+              <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 0.6 }}
+                className="mt-5 text-base md:text-lg text-[#8888aa] max-w-xl leading-relaxed">
                 Full Stack Developer with 4+ years of experience crafting robust,
                 scalable web applications. I transform complex problems into
                 elegant, production-ready solutions.
               </motion.p>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.6 }}
-                className="mt-8 flex flex-wrap gap-4"
-              >
-                <a
-                  href="#projects"
-                  className="group relative inline-flex items-center gap-2.5 px-7 py-3 text-sm font-semibold text-white bg-[#6366f1] rounded-xl overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(99,102,241,0.35)]"
-                >
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8, duration: 0.6 }}
+                className="mt-8 flex flex-wrap gap-4">
+                <a href="#projects" className="group relative inline-flex items-center gap-2.5 px-7 py-3 text-sm font-semibold text-white bg-[#6366f1] rounded-xl overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(99,102,241,0.35)]">
                   <span className="absolute inset-0 bg-gradient-to-r from-[#4f46e5] to-[#7c3aed] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <span className="relative">View My Work</span>
                   <svg className="relative w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </a>
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-2.5 px-7 py-3 text-sm font-medium text-[#bbbbdd] glass rounded-xl hover:text-[#eeeeff] hover:border-[#6366f1]/20 transition-all duration-300"
-                >
+                <a href="#contact" className="inline-flex items-center gap-2.5 px-7 py-3 text-sm font-medium text-[#bbbbdd] glass rounded-xl hover:text-[#eeeeff] hover:border-[#6366f1]/20 transition-all duration-300">
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                   </svg>
@@ -187,21 +150,12 @@ export default function Hero() {
                 </a>
               </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.8 }}
-                className="mt-10 flex items-center gap-3"
-              >
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }} className="mt-10 flex items-center gap-3">
                 {[
                   { icon: "github", href: "https://github.com/mmmelbahrawy55-beep" },
                 ].map((s) => (
-                  <a
-                    key={s.icon}
-                    href={s.href}
-                    target="_blank"
-                    className="group w-10 h-10 flex items-center justify-center rounded-xl border border-[#1a1a35] text-[#8888aa] hover:border-[#6366f1]/30 hover:text-[#6366f1] hover:bg-[#6366f1]/[0.06] transition-all duration-300 hover:-translate-y-0.5"
-                  >
+                  <a key={s.icon} href={s.href} target="_blank"
+                    className="group w-10 h-10 flex items-center justify-center rounded-xl border border-[#1a1a35] text-[#8888aa] hover:border-[#6366f1]/30 hover:text-[#6366f1] hover:bg-[#6366f1]/[0.06] transition-all duration-300 hover:-translate-y-0.5">
                     <i className={`fab fa-${s.icon} text-base`} />
                   </a>
                 ))}
@@ -213,12 +167,8 @@ export default function Hero() {
         </div>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
-        className="relative z-10"
-      >
+      {/* Marquee */}
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }} className="relative z-10">
         <div className="border-y border-[#1a1a35]/50 py-3.5 overflow-hidden">
           <div className="marquee-track">
             {[...techMarquee, ...techMarquee].map((t, i) => (
@@ -231,23 +181,14 @@ export default function Hero() {
         </div>
       </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-5 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 z-10"
-      >
+      {/* Scroll indicator */}
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }}
+        className="absolute bottom-5 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 z-10">
         <span className="text-[9px] font-mono text-[#8888aa]/30 tracking-[0.3em]">SCROLL</span>
-        <motion.div
-          animate={{ y: [0, 5, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-4 h-7 border border-[#1a1a35]/60 rounded-full flex justify-center pt-1.5"
-        >
-          <motion.div
-            animate={{ opacity: [0.2, 0.8, 0.2] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-[3px] h-1.5 bg-[#6366f1] rounded-full"
-          />
+        <motion.div animate={{ y: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}
+          className="w-4 h-7 border border-[#1a1a35]/60 rounded-full flex justify-center pt-1.5">
+          <motion.div animate={{ opacity: [0.2, 0.8, 0.2] }} transition={{ duration: 1.5, repeat: Infinity }}
+            className="w-[3px] h-1.5 bg-[#6366f1] rounded-full" />
         </motion.div>
       </motion.div>
     </section>
