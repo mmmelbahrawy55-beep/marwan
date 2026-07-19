@@ -14,6 +14,15 @@ const projects = [
     links: { code: "https://github.com/mmmelbahrawy55-beep", live: "https://shop-plum-theta-83.vercel.app/" },
   },
   {
+    title: "The Gourmet Bar",
+    desc: "Premium restaurant website featuring elegant menu presentation, reservation system, gallery showcase, and responsive design crafted for a luxury dining experience.",
+    tech: ["React", "Next.js", "Tailwind CSS", "Vercel"],
+    gradient: "from-amber-500/20 via-orange-500/10 to-red-500/5",
+    accentColor: "#f59e0b",
+    icon: "fa-solid fa-utensils",
+    links: { code: "https://github.com/mmmelbahrawy55-beep", live: "https://resturant-gray-three.vercel.app/" },
+  },
+  {
     title: "ELBA 7RAWY — Advertising",
     desc: "Full-stack digital presence for a leading advertising agency. Includes a dynamic materials catalog with 14+ product categories, real-time pricing, project workflow tracking, and integrated client contact system.",
     tech: ["HTML", "CSS", "JavaScript", "Firebase"],
@@ -94,7 +103,7 @@ export default function Projects() {
           </motion.div>
           <motion.h2 custom={1} variants={fadeUp} className="text-3xl md:text-[2.6rem] font-bold text-text-white">Featured <span className="gradient-text">work</span></motion.h2>
         </motion.div>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 gap-6">
           {projects.map((project, i) => (<ProjectCard key={project.title} project={project} index={i} isInView={isInView} />))}
         </div>
         <motion.div initial={{ opacity: 0 }} animate={isInView ? { opacity: 1 } : {}} transition={{ delay: 0.8 }} className="mt-12 text-center">
