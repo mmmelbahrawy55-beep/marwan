@@ -65,14 +65,17 @@ export default function Hero() {
   const isDesktop = useMediaQuery("(min-width: 1024px)");
   const typedText = useTypewriter(titles);
 
-  const handleMouse = useCallback((e: React.MouseEvent) => {
-    const x = (e.clientX / window.innerWidth) * 2 - 1;
-    const y = -(e.clientY / window.innerHeight) * 2 + 1;
+  const handleMove = useCallback((clientX: number, clientY: number) => {
+    const x = (clientX / window.innerWidth) * 2 - 1;
+    const y = -(clientY / window.innerHeight) * 2 + 1;
     setMouse({ x, y });
   }, []);
 
+  const handleMouse = useCallback((e: React.MouseEvent) => handleMove(e.clientX, e.clientY), [handleMove]);
+  const handleTouch = useCallback((e: React.TouchEvent) => { handleMove(e.touches[0].clientX, e.touches[0].clientY); }, [handleMove]);
+
   return (
-    <section id="home" onMouseMove={handleMouse} className="relative min-h-screen flex flex-col overflow-hidden">
+    <section id="home" onMouseMove={handleMouse} onTouchMove={handleTouch} className="relative min-h-screen flex flex-col overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
         <Particles />

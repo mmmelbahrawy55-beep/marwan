@@ -51,15 +51,18 @@ function ProjectCard({ project, index, isInView }: { project: (typeof projects)[
   const [rotate, setRotate] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
 
-  const onMouseMove = useCallback((e: React.MouseEvent) => {
+  const handleMove = useCallback((clientX: number, clientY: number) => {
     if (!cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    const x = (clientX - rect.left) / rect.width - 0.5;
+    const y = (clientY - rect.top) / rect.height - 0.5;
     setRotate({ x: -y * 8, y: x * 8 });
   }, []);
 
+  const onMouseMove = useCallback((e: React.MouseEvent) => handleMove(e.clientX, e.clientY), [handleMove]);
+  const onTouchMove = useCallback((e: React.TouchEvent) => { handleMove(e.touches[0].clientX, e.touches[0].clientY); }, [handleMove]);
   const onMouseLeave = useCallback(() => { setRotate({ x: 0, y: 0 }); setIsHovered(false); }, []);
+  const onTouchEnd = useCallback(() => { setRotate({ x: 0, y: 0 }); setIsHovered(false); }, []);
 
   return (
     <motion.div
@@ -68,6 +71,7 @@ function ProjectCard({ project, index, isInView }: { project: (typeof projects)[
       transition={{ delay: 0.1 * index, duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const }}
     >
       <div ref={cardRef} onMouseMove={onMouseMove} onMouseLeave={onMouseLeave} onMouseEnter={() => setIsHovered(true)}
+        onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} onTouchStart={() => setIsHovered(true)}
         className="group perspective-[1200px] cursor-pointer">
         <motion.div
           animate={{ rotateX: rotate.x, rotateY: rotate.y }}

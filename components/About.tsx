@@ -53,7 +53,7 @@ export default function About() {
               <div className="absolute inset-0 bg-gradient-to-br from-[#6366f1]/[0.03] to-transparent" />
               <div className="relative">
                 <span className="text-4xl md:text-5xl font-bold gradient-text">B.Sc.</span>
-                <p className="mt-3 text-sm text-[#aaaacc] uppercase tracking-[0.1em] font-medium">Computer Science — El Ebtekar University</p>
+                <p className="mt-3 text-sm text-[#aaaacc] uppercase tracking-[0.1em] font-medium">Computer Science — Innovation University</p>
                 <p className="mt-1 text-xs text-[#7777aa] font-mono">GPA: 3.7 / 4.0 — Graduated with Honors</p>
               </div>
             </div>
