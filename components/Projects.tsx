@@ -44,6 +44,16 @@ const projects = [
     icon: "fa-solid fa-building",
     links: { code: "https://github.com/mmmelbahrawy55-beep", live: "https://company-management-system-six.vercel.app/" },
   },
+  {
+    title: "ROAST Café",
+    subtitle: "Premium Coffee Experience",
+    desc: "Elegant coffee shop website featuring an immersive hero experience, animated menu sections with chef's picks, photo gallery, customer reviews, and a seamless reservation & ordering flow — all crafted with smooth scroll animations and a warm luxury aesthetic.",
+    tech: ["React", "Next.js", "Tailwind CSS", "Vercel"],
+    gradient: "from-orange-500/20 via-amber-500/10 to-yellow-500/5",
+    accentColor: "#f97316",
+    icon: "fa-solid fa-mug-hot",
+    links: { code: "https://github.com/mmmelbahrawy55-beep", live: "https://cafe-ten-topaz.vercel.app/" },
+  },
 ];
 
 function ProjectCard({ project, index, isInView }: { project: (typeof projects)[0]; index: number; isInView: boolean }) {
