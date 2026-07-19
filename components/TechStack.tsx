@@ -15,10 +15,10 @@ function SkillBar({ name, level, index, color }: { name: string; level: number; 
   return (
     <div ref={ref} className="space-y-2">
       <div className="flex justify-between text-sm">
-        <span className="text-text-light font-medium">{name}</span>
+        <span className="text-[#bbbbdd] font-medium">{name}</span>
         <span className="font-mono text-xs" style={{ color }}>{level}%</span>
       </div>
-      <div className="h-2 bg-border/50 rounded-full overflow-hidden">
+      <div className="h-2 bg-[#1a1a35]/50 rounded-full overflow-hidden">
         <motion.div initial={{ width: 0 }} animate={isInView ? { width: `${level}%` } : {}} transition={{ duration: 1.2, delay: index * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }} className="h-full rounded-full relative" style={{ background: `linear-gradient(90deg, ${color}, ${color}88)`, boxShadow: isInView ? `0 0 20px ${color}40` : "none" }}>
           <div className="absolute inset-0 rounded-full" style={{ background: `linear-gradient(90deg, transparent, ${color}30)` }} />
         </motion.div>
@@ -37,15 +37,15 @@ export default function TechStack() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   return (
     <section id="tech" ref={ref} className="py-24 md:py-36 relative">
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/10 to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#6366f1]/10 to-transparent" />
       <div className="container">
         <motion.div initial="hidden" animate={isInView ? "visible" : "hidden"} className="text-center mb-16">
           <motion.div custom={0} variants={fadeUp} className="flex items-center justify-center gap-3 mb-6">
-            <div className="h-px w-12 bg-gradient-to-r from-transparent to-accent/30" />
-            <span className="text-[11px] font-mono text-accent tracking-[0.2em] uppercase px-3 py-1 bg-accent-light rounded-full border border-accent/10">02 — Tech Stack</span>
-            <div className="h-px w-12 bg-gradient-to-l from-transparent to-accent/30" />
+            <div className="h-px w-12 bg-gradient-to-r from-transparent to-[#6366f1]/30" />
+            <span className="text-[11px] font-mono text-[#6366f1] tracking-[0.2em] uppercase px-3 py-1 bg-[#6366f1]/[0.06] rounded-full border border-[#6366f1]/10">02 — Tech Stack</span>
+            <div className="h-px w-12 bg-gradient-to-l from-transparent to-[#6366f1]/30" />
           </motion.div>
-          <motion.h2 custom={1} variants={fadeUp} className="text-3xl md:text-[2.6rem] font-bold text-text-white">Tools I use daily to <span className="gradient-text">build amazing products</span></motion.h2>
+          <motion.h2 custom={1} variants={fadeUp} className="text-3xl md:text-[2.6rem] font-bold text-[#eeeeff]">Tools I use daily to <span className="gradient-text">build amazing products</span></motion.h2>
         </motion.div>
         <motion.div initial="hidden" animate={isInView ? "visible" : "hidden"} className="grid md:grid-cols-3 gap-6">
           {categories.map((cat, i) => (
@@ -53,11 +53,11 @@ export default function TechStack() {
               <div className="absolute top-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: `linear-gradient(90deg, transparent, ${cat.color}, transparent)` }} />
               <div className="absolute -top-24 -right-24 w-48 h-48 rounded-full blur-[80px] opacity-0 group-hover:opacity-20 transition-opacity duration-500" style={{ background: cat.color }} />
               <div className="relative z-10">
-                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-border/50">
+                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-[#1a1a35]/50">
                   <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${cat.color}15` }}>
                     <i className={cat.icon} style={{ color: cat.color }} />
                   </div>
-                  <h3 className="text-lg font-semibold text-text-white">{cat.label}</h3>
+                  <h3 className="text-lg font-semibold text-[#eeeeff]">{cat.label}</h3>
                 </div>
                 <div className="space-y-5">
                   {cat.items.map((skill, j) => (<SkillBar key={skill.name} name={skill.name} level={skill.level} index={j} color={cat.color} />))}
