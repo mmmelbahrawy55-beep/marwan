@@ -135,7 +135,7 @@ export default function CVPage() {
             <div className="flex justify-between items-baseline">
               <div>
                 <h3 className="text-[14px] font-bold text-[#222]">B.Sc. Computer Science</h3>
-                <p className="text-[12px] text-[#666]">Cairo University</p>
+                <p className="text-[12px] text-[#666]">El Ebtekar University</p>
               </div>
               <span className="text-[11px] text-[#888] font-mono">2016 — 2020</span>
             </div>
