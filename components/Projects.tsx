@@ -54,6 +54,16 @@ const projects = [
     icon: "fa-solid fa-mug-hot",
     links: { code: "https://github.com/mmmelbahrawy55-beep", live: "https://cafe-ten-topaz.vercel.app/" },
   },
+  {
+    title: "Al-Shifa Hospital",
+    subtitle: "Healthcare Platform",
+    desc: "Full-featured Arabic-first hospital website with real-time appointment booking, 8+ medical department listings, doctor profiles with specializations, patient testimonials, and a live appointment notification feed — built for scalability and accessibility.",
+    tech: ["React", "Next.js", "Tailwind CSS", "Vercel"],
+    gradient: "from-teal-500/20 via-emerald-500/10 to-green-500/5",
+    accentColor: "#14b8a6",
+    icon: "fa-solid fa-hospital",
+    links: { code: "https://github.com/mmmelbahrawy55-beep", live: "https://alshifa-hospital-hero2.vercel.app/" },
+  },
 ];
 
 function ProjectCard({ project, index, isInView }: { project: (typeof projects)[0]; index: number; isInView: boolean }) {
