@@ -62,7 +62,7 @@ const projects = [
     gradient: "from-teal-500/20 via-emerald-500/10 to-green-500/5",
     accentColor: "#14b8a6",
     icon: "fa-solid fa-hospital",
-    links: { code: "https://github.com/mmmelbahrawy55-beep", live: "https://alshifa-hospital-hero2.vercel.app/" },
+    links: { code: "https://github.com/mmmelbahrawy55-beep", live: "https://alshifa-hospital-features.vercel.app/" },
   },
 ];
 
